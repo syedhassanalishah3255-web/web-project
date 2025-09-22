@@ -1,172 +1,273 @@
 /* Main Menu */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F5F5F0; 
-      color: #333; 
-      line-height: 1.6; 
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F0; 
+  color: #333; 
+  line-height: 1.6; 
+}
 
-    /* Header styling */
-    header {
-      display: flex; /* Use flexbox for layout */
-      align-items: center; 
-      justify-content: space-between; /* Space between logo and nav */
-      background-color: #355E3B; 
-      padding: 0 2rem; 
-      height: 80px; 
-      position: sticky; /* Stick header to top on scroll */
-      top: 0; /* Stick at top */
-      z-index: 100; /* Ensure header is above other content */
-    }
+/* Header styling */
+header {
+  display: flex; /* Use flex for layout */
+  align-items: center; 
+  justify-content: space-between; /* Space between logo and nav(i think looks better la) */
+  background-color: #355E3B; 
+  padding: 0 2rem; 
+  height: 80px; 
+  position: sticky; /* Stick header to top on scroll(Sticky header(Should be enhancement?))*/
+  top: 0; /* Stick at top */
+  z-index: 100; /* make sure header is above other content*/
+}
 
-    /* Container for logo image and text */
-    .logo-container {
-      display: flex;
-      align-items: center; 
-    }
+/* Container for logo image and text*/
+.logo-container {
+  display: flex;
+  align-items: center; 
+}
 
-    /* Logo styling */
-    .logo-container img {
-      width: 80px;
-      height: auto; /* Maintain aspect ratio */
-      margin-right: 1rem; /* Space between image and text */
-    }
+/* Logo text styling*/
+.logo-container h1 {
+  color: #E6DDC6; 
+  margin: 0; 
+  font-size: 2rem; 
+  font-weight: bold; 
+  font-family: 'Times New Roman', Times, serif;
+}
 
-    /* Logo text styling */
-    .logo-container h1 {
-      color: #E6DDC6; 
-      margin: 0; 
-      font-size: 2rem; 
-      font-weight: bold; 
-    }
+/* Logo styling*/
+.logo-container img {
+  width: 80px;
+  height: auto; 
+  margin-left: 1rem; 
+}
 
-    /* Navigation bar styling */
-    nav {
-      display: flex; /* Horizontal layout for links */
-      align-items: center; 
-    }
+/* Navigation bar styling */
+nav {
+  display: flex; /* Horizontal layout for links*/
+  align-items: center; 
+}
 
-    /* Navigation links styling */
-    nav a {
-      color: #E6DDC6; 
-      text-decoration: none; 
-      margin: 0 1rem; /* spacing between links */
-      font-weight: 600; 
-      font-size: 1.1rem; 
-      transition: color 0.3s ease; /*color change on hover*/
-    }
+/* Navigation links styling */
+nav a,
+.nav-link {
+  color: #E6DDC6; 
+  text-decoration: none; 
+  margin: 0 1rem; /* spacing between links */
+  font-weight: 600; 
+  font-size: 1.1rem; 
+  transition: color 0.3s ease; /*color change on hover*/
+}
 
-    /* Navigation link hover effect */
-    nav a:hover {
-      color: #ffffff; /* White color on hover */
-    }
+/* Navigation link hover effect */
+nav a:hover,
+.nav-link:hover {
+  color: #ffffff; /* White color on hover */
+}
 
-    /* Main content container */
-    main {
-      max-width: 1000px;
-      margin: 2rem auto; 
-      padding: 0 1rem;
-    }
+/* Dropdown for Products and About Us*/
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; /* Below the nav link */
+  left: 0;
+  background-color: #355E3B; /* Match header color */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 150px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 101;
+}
 
-    /* Section for general info and sales */
-    .info-section {
-      background-color: #E6DDC6; 
-      padding: 1.5rem 2rem; 
-      border-radius: 8px; /* Rounded corners */
-      margin-bottom: 2rem; /* Space below section */
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* shadow */
-    }
+.dropdown li {
+  padding: 0;
+}
 
-    /* Heading inside info section */
-    .info-section h2 {
-      color: #355E3B; 
-      margin-top: 0; /* Remove top margin */
-    }
+.dropdown li a {
+  display: block;
+  padding: 0.8rem 1rem;
+  margin: 0;
+  border-bottom: 1px solid rgba(230, 221, 198, 0.2); /* Subtle separator */
+  color: #E6DDC6;
+  transition: background-color 0.3s ease;
+}
 
-    /* Paragraphs inside info section */
-    .info-section p {
-      font-size: 1.1rem; 
-      margin-bottom: 0.5rem; 
-    }
+.dropdown li a:hover {
+  background-color: #6B8E23; /* Olive green on hover */
+  color: #ffffff;
+}
 
-    /* List styling for classes and workshops */
-    .class-list, .workshop-list {
-      margin: 1rem 0 1.5rem 1.2rem; /* Indent and spacing */
-      font-size: 1.1rem;
-      color: #2F4F2F; 
-    }
+.dropdown li:last-child a {
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+}
 
-    /* Menu section heading */
-    .menu-section h2 {
-      color: #355E3B; 
-      margin-bottom: 1rem; 
-    }
+/* Show dropdown on hover (applies to both Products and About Us) */
+.dropdown-container {
+  position: relative;
+}
 
-    /* Menu list container */
-    .menu-list {
-      list-style: none; /* Remove default bullets*/
-      padding: 0;
-      display: grid; /* Use grid layout */
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); /* Responsive columns */
-      gap: 1.5rem; 
-    }
+.dropdown-container:hover .dropdown {
+  display: block;
+}
 
-    /* Individual menu item */
-    .menu-list li {
-      background-color: #fff; 
-      border-radius: 8px; 
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
-      padding: 1rem; 
-      text-align: center;
-      transition: transform 0.3s ease; /* transform on hover */
-    }
+/* Main content container */
+main {
+  max-width: 1000px;
+  margin: 2rem auto; 
+  padding: 0 1rem;
+}
 
-    /* Hover effect for menu items */
-    .menu-list li:hover {
-      transform: translateY(-5px); /* lift slightly */
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
+/* Shared styles for text sections (Welcome, Promotions, News) */
+.text-section {
+  background-color: transparent; /* Later set something like color if can*/
+  padding: 1.5rem 2rem;
+  border-radius: 8px; 
+  margin-bottom: 2rem;
+  color: #2F4F2F;
+}
 
-    /* Links inside menu items */
-    .menu-list a {
-      text-decoration: none;
-      color: #355E3B; 
-      font-weight: 700; 
-      font-size: 1.2rem;
-      display: block; /* Make link block-level */
-      margin-top: 0.5rem;
-    }
+.text-section h2 {
+  color: #355E3B;
+  font-size: 1.9rem; /* Make slightly smaller than welcome's original 2rem for consistency */
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
 
-    /* Hover effect for menu links */
-    .menu-list a:hover {
-      color: #6B8E23; /* Olive green on hover */
-    }
+/* Paragraphs in text sections (for Welcome and items) */
+.text-section p,
+.item p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem; /* Slightly more space for Welcome */
+  color: #2F4F2F;
+}
 
-    /* Responsive styles for smaller screens */
-    @media (max-width: 768px) {
-      header {
-        padding: 0 1rem; 
-        height: auto; 
-        flex-direction: column; /* Stack logo and nav vertically */
-        align-items: flex-start; /* Align items to left */
-      }
-      .logo-container {
-        margin-bottom: 1rem; 
-      }
-      nav {
-        width: 100%; /* Full width nav */
-        justify-content: space-around; /* Evenly space links */
-      }
-      nav a {
-        margin: 0; 
-      }
-      main {
-        margin: 1rem;
-      }
-      .menu-list {
-        grid-template-columns: 1fr; 
-      }
-    }
+/* Shared item styles for Promotions and News sub-items */
+.item {
+  margin-bottom: 1.5rem;
+}
 
-/* Products */
+.item h3 {
+  font-size: 1.3rem;
+  color: #355E3B;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer styling */
+footer {
+  background-color: #355E3B; /* Match header */
+  padding: 1rem 2rem;
+  text-align: center;
+  color: #E6DDC6;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-content a {
+  color: #E6DDC6;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #ffffff;
+}
+
+/* Profile Styling */
+
+main {
+  max-width: 1000px;
+  margin: 2rem auto; 
+  padding: 0 1rem;
+}
+
+/* Profile section wrapper */
+.profile-section {
+  background-color: transparent;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center; /* Center everything */
+  color: #2F4F2F;
+}
+
+/* Profile image styling */
+.profile-image {
+  width: 200px; 
+  height: auto;
+  max-width: 100%; /* Responsive on mobile */
+  margin-bottom: 1.5rem;
+  display: block; /* Center the image */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Profile info headings */
+.profile-info h1 {
+  color: #355E3B; /* Site green */
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.profile-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.profile-info h3 {
+  color: #355E3B;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Profile table styling */
+.profile-table {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto; /* Center the table */
+  border-collapse: collapse;
+  border: 2px solid #355E3B; /* Green border */
+  border-radius: 8px;
+  overflow: hidden; /* Round corners on table */
+  font-size: 1.1rem;
+}
+
+.profile-table th,
+.profile-table td {
+  padding: 1rem; /* padding */
+  text-align: left;
+}
+
+.profile-table th {
+  background-color: #355E3B; /* Green header */
+  color: #E6DDC6; /* White text */
+  font-weight: bold;
+  text-align: left;
+}
+
+.profile-table tr:nth-child(even) {
+  background-color: #F5F5F0; /* Light body background for alternating rows */
+}
+
+.profile-table tr:hover {
+  background-color: #E6DDC6; /* Hover effect color */
+  transition: background-color 0.3s ease;
+}
+
+/* Product */
