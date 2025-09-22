@@ -5,84 +5,95 @@
   <meta name="description" content="Index"/>
   <meta name="keywords" content="HTML,CSS"/>
   <meta name="author" content="Christian Deniro,Hassan,Ali"/>
-  <link rel="stylesheet" href="style.css"/>
   <title>Root Flowers</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <header>
     <!-- Logo and company name -->
     <div class="logo-container">
-      <img src="Logo.jpeg" alt="Root Flower Logo" />
       <h1>ROOT FLOWER</h1>
+      <img src="Logo.jpeg" alt="Root Flower Logo" />
     </div>
     <!-- Navigation menu -->
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
+      <a href="#index.html">Home</a>
+      <div class="dropdown-container">
+        <a href="#products.html" class="nav-link">Products</a>
+        <ul class="dropdown">
+          <li><a href="#hand-bouquet.html">Hand Bouquet</a></li>
+          <li><a href="#cny-decoration.html">CNY Decoration</a></li>
+          <li><a href="#grand-opening.html">Grand Opening</a></li>
+          <li><a href="#graduation.html">Graduation</a></li>
+        </ul>
+      </div>
+      <div class="dropdown-container">
+        <a href="#about.html" class="nav-link">About Us</a>
+        <ul class="dropdown">
+          <li><a href="profile1.html">Christian Deniro</a></li>
+          <li><a href="profile2.html">Hassan</a></li>
+          <li><a href="profile3.html">Ali</a></li>
+        </ul>
+      </div>
+      <a href="#contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <!-- Classes and Workshop Information Section -->
-    <section class="info-section" aria-label="Classes and Workshop Information">
-      <h2>Join Our Classes and Workshop</h2>
-      <p>Root Flowers offers a variety of classes designed to help you master the art of flower arranging and plant care. You can also sign up for our hands-on workshop to get practical experience.</p>
-      
-      <h3>Our Classes</h3>
-      <ul class="class-list">
-        <li><strong>Class 1:</strong> Introduction to Flower Arranging – Learn the basics of floral design and color theory.</li>
-        <li><strong>Class 2:</strong> Seasonal Bouquets – Create beautiful bouquets using seasonal flowers.</li>
-        <li><strong>Class 3:</strong> Advanced Floral Techniques – Explore advanced styles and techniques for professional arrangements.</li>
-      </ul>
-
-      <h3>Workshop</h3>
-      <ul class="workshop-list">
-        <li>Hands-on Workshop – Join our expert florists for a practical session where you create your own arrangements and learn care tips.</li>
-      </ul>
-
-      <p><strong>Sign up today!</strong> Visit our <a href="contact.html" style="color:#355E3B; font-weight:bold; text-decoration:underline;">Contact</a> page to register for classes and workshops.</p>
+    <!-- Introduction to the company Section -->
+    <section class="text-section" aria-label="Introduction to Root Flowers">
+      <h2>Welcome to Root Flowers</h2>
+      <p>At Root Flowers, we love turning moments into memories with beautiful blooms. From heartfelt hand bouquets, festive CNY decorations, vibrant grand opening flowers, to joyful graduation arrangements—we’ve got the perfect flowers for every occasion.</p>
+      <p>We also offer fun workshops, where you can learn to design your own floral creations and let your creativity bloom.</p>
+      <p>With Root Flowers, every day is a little brighter, a little happier, and always filled with flowers.</p>
     </section>
 
-    <!-- Menu Section with links to other pages -->
-    <section class="menu-section" aria-label="Menu Navigation">
-      <h2>Explore Our Menu</h2>
-      <ul class="menu-list">
-        <li>
-          <strong>Fresh Bouquets</strong>
-          <a href="products.html#bouquets" title="View Fresh Bouquets">View Products</a>
-        </li>
-        <li>
-          <strong>Indoor Plants</strong>
-          <a href="products.html#plants" title="View Indoor Plants">View Products</a>
-        </li>
-        <li>
-          <strong>Seasonal Specials</strong>
-          <a href="products.html#seasonal" title="View Seasonal Specials">View Products</a>
-        </li>
-        <li>
-          <strong>Gift Sets</strong>
-          <a href="products.html#gifts" title="View Gift Sets">View Products</a>
-        </li>
-        <li>
-          <strong>About Us</strong>
-          <a href="about.html" title="Learn About Root Flowers">Learn More</a>
-        </li>
-        <li>
-          <strong>Contact</strong>
-          <a href="contact.html" title="Contact Root Flowers">Get in Touch</a>
-        </li>
-        <li>
-          <strong>Contact</strong>
-          <a href="contact.html" title="Contact Root Flowers">Get in Touch</a>
-        </li>
-        <li>
-          <strong>Contact</strong>
-          <a href="contact.html" title="Contact Root Flowers">Get in Touch</a>
-        </li>
-      </ul>
+    <!-- Promotions Section -->
+    <section class="text-section" aria-label="Current Promotions">
+      <h2>Latest Promotions</h2>
+
+      <div class="item">
+        <h3>First-Time Purchase Special</h3>
+        <p>New to Root Flowers? We’d love to welcome you with something extra sweet! For your very first order, enjoy 10% OFF any bouquet or arrangement—whether it’s a classic hand bouquet, a festive CNY decoration, or flowers for a big celebration. It’s our way of saying thank you for choosing us to be part of your special moments. Every bloom is freshly picked, carefully arranged, and wrapped with love, so your first Root Flowers experience will be nothing short of memorable. Don’t miss out—your first bouquet is waiting to make someone smile! </p>
+      </div>
+
+      <div class="item">
+        <h3>Graduation Blooms Bundle</h3>
+        <p>Graduation day is a once-in-a-lifetime moment—and every achievement deserves flowers as bright as the future ahead. This season, Root Flowers is offering a special graduation package: get a graduation bouquet + a mini gift add-on (like a plush bear or balloon) at a discounted bundle price. Perfect for surprising your favorite graduate with flowers that say “Congratulations, we’re proud of you!” Each bouquet is crafted with vibrant, cheerful flowers designed to capture the joy of the occasion. Celebrate success, new beginnings, and unforgettable memories with blooms that speak louder than words. </p>
+      </div>
+
+      <div class="item">
+        <h3>Learn & Bloom Workshop Special</h3>
+        <p>Always wanted to try your hand at floral design? Now’s the time! Join our exclusive flower workshop classes, and when you bring a friend, you’ll both receive RM20 off your seats. Together, you’ll learn the art of arranging flowers, discover creative tips, and walk away with your very own handmade bouquet to take home. It’s not just a class—it’s a fun, relaxing experience that lets you connect with flowers (and with friends!) in a whole new way. Perfect for beginners or anyone looking to explore a new hobby. Seats are limited, so reserve yours soon! </p>
+      </div>
+    </section>
+
+    <section class="text-section" aria-label="Latest News">
+      <h2>Latest News</h2>
+
+      <div class="item">
+        <h3>Say Hello to Our Sunflower Bundle</h3>
+        <p>Bright, bold, and full of cheer—our new Sunflower Bundle has just arrived at Root Flowers! Perfect for birthdays, congratulations, or simply to send some sunshine to someone’s day, this bundle includes a stunning sunflower bouquet paired with a little surprise gift to make it extra special. Sunflowers symbolize positivity and happiness, making them the perfect choice when words aren’t enough. Available for a limited time only, so grab yours and let the sunshine in! </p>
+      </div>
+
+      <div class="item">
+        <h3>New Graduation Collection Launch</h3>
+        <p>Good news for all proud parents, friends, and graduates! Root Flowers has launched a brand-new Graduation Collection featuring fresh, modern bouquet designs perfect for celebrating this special milestone. From classic roses to colorful mixed blooms, we’ve curated arrangements that truly capture the spirit of achievement. Each bouquet can be paired with fun add-ons like balloons, plushies, or personalized cards to make the day even more memorable. Celebrate success the Root Flowers way—with flowers that shine as bright as the graduates themselves! </p>
+      </div>
+
+      <div class="item">
+        <h3>Roses, Reimagined at Root Flowers</h3>
+        <p>Romance, elegance, and timeless beauty—our new rose collection is here! From classic red roses for love, to pastel shades for friendship and gentle surprises, we’ve designed fresh arrangements that fit every mood and moment. Each bouquet is wrapped with care and thought, making it the perfect choice for anniversaries, birthdays, or just because. With Root Flowers’ roses, you don’t need a special occasion—because every day is the right day to say it with flowers. </p>
+      </div>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <a href="#about.html">About Us</a>
+      <a href="#contact.html">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>
