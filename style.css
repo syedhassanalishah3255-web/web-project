@@ -1,0 +1,172 @@
+/* Main Menu */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #F5F5F0; 
+      color: #333; 
+      line-height: 1.6; 
+    }
+
+    /* Header styling */
+    header {
+      display: flex; /* Use flexbox for layout */
+      align-items: center; 
+      justify-content: space-between; /* Space between logo and nav */
+      background-color: #355E3B; 
+      padding: 0 2rem; 
+      height: 80px; 
+      position: sticky; /* Stick header to top on scroll */
+      top: 0; /* Stick at top */
+      z-index: 100; /* Ensure header is above other content */
+    }
+
+    /* Container for logo image and text */
+    .logo-container {
+      display: flex;
+      align-items: center; 
+    }
+
+    /* Logo styling */
+    .logo-container img {
+      width: 80px;
+      height: auto; /* Maintain aspect ratio */
+      margin-right: 1rem; /* Space between image and text */
+    }
+
+    /* Logo text styling */
+    .logo-container h1 {
+      color: #E6DDC6; 
+      margin: 0; 
+      font-size: 2rem; 
+      font-weight: bold; 
+    }
+
+    /* Navigation bar styling */
+    nav {
+      display: flex; /* Horizontal layout for links */
+      align-items: center; 
+    }
+
+    /* Navigation links styling */
+    nav a {
+      color: #E6DDC6; 
+      text-decoration: none; 
+      margin: 0 1rem; /* spacing between links */
+      font-weight: 600; 
+      font-size: 1.1rem; 
+      transition: color 0.3s ease; /*color change on hover*/
+    }
+
+    /* Navigation link hover effect */
+    nav a:hover {
+      color: #ffffff; /* White color on hover */
+    }
+
+    /* Main content container */
+    main {
+      max-width: 1000px;
+      margin: 2rem auto; 
+      padding: 0 1rem;
+    }
+
+    /* Section for general info and sales */
+    .info-section {
+      background-color: #E6DDC6; 
+      padding: 1.5rem 2rem; 
+      border-radius: 8px; /* Rounded corners */
+      margin-bottom: 2rem; /* Space below section */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* shadow */
+    }
+
+    /* Heading inside info section */
+    .info-section h2 {
+      color: #355E3B; 
+      margin-top: 0; /* Remove top margin */
+    }
+
+    /* Paragraphs inside info section */
+    .info-section p {
+      font-size: 1.1rem; 
+      margin-bottom: 0.5rem; 
+    }
+
+    /* List styling for classes and workshops */
+    .class-list, .workshop-list {
+      margin: 1rem 0 1.5rem 1.2rem; /* Indent and spacing */
+      font-size: 1.1rem;
+      color: #2F4F2F; 
+    }
+
+    /* Menu section heading */
+    .menu-section h2 {
+      color: #355E3B; 
+      margin-bottom: 1rem; 
+    }
+
+    /* Menu list container */
+    .menu-list {
+      list-style: none; /* Remove default bullets*/
+      padding: 0;
+      display: grid; /* Use grid layout */
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); /* Responsive columns */
+      gap: 1.5rem; 
+    }
+
+    /* Individual menu item */
+    .menu-list li {
+      background-color: #fff; 
+      border-radius: 8px; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+      padding: 1rem; 
+      text-align: center;
+      transition: transform 0.3s ease; /* transform on hover */
+    }
+
+    /* Hover effect for menu items */
+    .menu-list li:hover {
+      transform: translateY(-5px); /* lift slightly */
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Links inside menu items */
+    .menu-list a {
+      text-decoration: none;
+      color: #355E3B; 
+      font-weight: 700; 
+      font-size: 1.2rem;
+      display: block; /* Make link block-level */
+      margin-top: 0.5rem;
+    }
+
+    /* Hover effect for menu links */
+    .menu-list a:hover {
+      color: #6B8E23; /* Olive green on hover */
+    }
+
+    /* Responsive styles for smaller screens */
+    @media (max-width: 768px) {
+      header {
+        padding: 0 1rem; 
+        height: auto; 
+        flex-direction: column; /* Stack logo and nav vertically */
+        align-items: flex-start; /* Align items to left */
+      }
+      .logo-container {
+        margin-bottom: 1rem; 
+      }
+      nav {
+        width: 100%; /* Full width nav */
+        justify-content: space-around; /* Evenly space links */
+      }
+      nav a {
+        margin: 0; 
+      }
+      main {
+        margin: 1rem;
+      }
+      .menu-list {
+        grid-template-columns: 1fr; 
+      }
+    }
+
+/* Products */
