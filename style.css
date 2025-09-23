@@ -30,7 +30,7 @@ header {
 .logo-container h1 {
   color: #E6DDC6; 
   margin: 0; 
-  font-size: 2rem; 
+  font-size: 2rem; /*rem means root em and = 16 px and rem better be used in font rather than px so its responsive to the user font settings rather than px thats absolute*/
   font-weight: bold; 
   font-family: 'Times New Roman', Times, serif;
 }
@@ -69,16 +69,14 @@ nav a:hover,
 .dropdown {
   display: none;
   position: absolute;
-  top: 100%; /* Below the nav link */
+  top: 100%; /*to put Below the nav link */
   left: 0;
-  background-color: #355E3B; /* Match header color */
+  background-color: #355E3B; /* Match header color but probably will change later*/
   list-style: none;
   padding: 0;
   margin: 0;
-  min-width: 150px;
-  border-radius: 0 0 8px 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 101;
+  min-width: 150px; /*Set the minimum width,So it doesnt get smaller*/
+  z-index: 101; /*Make it above other content*/
 }
 
 .dropdown li {
@@ -89,7 +87,6 @@ nav a:hover,
   display: block;
   padding: 0.8rem 1rem;
   margin: 0;
-  border-bottom: 1px solid rgba(230, 221, 198, 0.2); /* Subtle separator */
   color: #E6DDC6;
   transition: background-color 0.3s ease;
 }
@@ -99,12 +96,7 @@ nav a:hover,
   color: #ffffff;
 }
 
-.dropdown li:last-child a {
-  border-bottom: none;
-  border-radius: 0 0 8px 8px;
-}
-
-/* Show dropdown on hover (applies to both Products and About Us) */
+/*dropdown on hover (For Products and About Us) */
 .dropdown-container {
   position: relative;
 }
@@ -116,13 +108,13 @@ nav a:hover,
 /* Main content container */
 main {
   max-width: 1000px;
-  margin: 2rem auto; 
+  margin: 2rem auto; /* Margin auto to make it centered */
   padding: 0 1rem;
 }
 
-/* Shared styles for text sections (Welcome, Promotions, News) */
+/*text sections (Welcome, Promotions, News) */
 .text-section {
-  background-color: transparent; /* Later set something like color if can*/
+  background-color: transparent; /* Later set something like color if can(ask teacher first)*/
   padding: 1.5rem 2rem;
   border-radius: 8px; 
   margin-bottom: 2rem;
@@ -131,7 +123,7 @@ main {
 
 .text-section h2 {
   color: #355E3B;
-  font-size: 1.9rem; /* Make slightly smaller than welcome's original 2rem for consistency */
+  font-size: 1.9rem; /* Make it slightly smaller than welcome's original 2rem*/
   margin-top: 0;
   margin-bottom: 1rem;
   text-align: center;
@@ -259,10 +251,6 @@ main {
   color: #E6DDC6; /* White text */
   font-weight: bold;
   text-align: left;
-}
-
-.profile-table tr:nth-child(even) {
-  background-color: #F5F5F0; /* Light body background for alternating rows */
 }
 
 .profile-table tr:hover {
