@@ -37,189 +37,101 @@
         </ul>
       </div>
 
-      <div class="dropdown-container">
-        <a href="about.html" class="nav-link">About Us</a>
-        <ul class="dropdown">
-          <li><a href="profile1.html">Christian Deniro</a></li>
-          <li><a href="profile2.html">Hassan</a></li>
-          <li><a href="profile3.html">Ali</a></li>
-        </ul>
-      </div>
+      <a href="about.html" class="nav-link">About Us</a>
 
       <a href="enquiry.html">Enquiry</a>
       
       <a href="membership.html">Membership</a>
     </nav>
-  </header>
+</header>
 
-  <main>
-<div class="slideshow-container">
-  <!-- Radio inputs for slide control (hidden) -->
-  <input type="radio" id="slide1" name="carousel" class="slide-input" checked>
-  <input type="radio" id="slide2" name="carousel" class="slide-input">
-  <input type="radio" id="slide3" name="carousel" class="slide-input">
+<main>
+  <div class="slideshow-container">
+    <!-- Radio inputs for slide control (hidden) -->
+    <input type="radio" id="slide1" name="carousel" class="slide-input" checked>
+    <input type="radio" id="slide2" name="carousel" class="slide-input">
+    <input type="radio" id="slide3" name="carousel" class="slide-input">
 
-  <!-- Full-width images -->
-  <div class="carousel-inner">
-    <div class="mySlides">
-      <img src="Photos/main_welcome.png" alt="Welcome Image for Root Flowers">
+    <!-- Full-width images -->
+    <div class="carousel-inner">
+      <div class="mySlides">
+        <img src="Photos/main_welcome.png" alt="Welcome Image for Root Flowers">
+      </div>
+
+      <div class="mySlides">
+        <img src="Photos/second_page.png" alt="Photos of beautiful flowers made by Root Flowers">
+      </div>
+
+      <div class="mySlides">
+        <img src="img3.jpg" alt="Workshop Promotion Image">
+      </div>
     </div>
 
-    <div class="mySlides">
-      <img src="Photos/second_page.png" alt="Photos of beautiful flowers made by Root Flowers">
-    </div>
+    <!-- Decorative arrow indicators (visual cues for direction; non-clickable) -->
+    <div class="scroll-arrow left-arrow">&#8249;</div>
+    <div class="scroll-arrow right-arrow">&#8250;</div>
 
-    <div class="mySlides">
-      <img src="img3.jpg" alt="Workshop Promotion Image">
+    <!-- Clickable dots (positioned inside/at bottom of image for navigation) -->
+    <div class="carousel-indicators">
+      <label for="slide1" class="dot"></label>
+      <label for="slide2" class="dot"></label>
+      <label for="slide3" class="dot"></label>
     </div>
   </div>
+  <br>
 
-  <!-- Decorative arrow indicators (visual cues for direction; non-clickable) -->
-  <div class="scroll-arrow left-arrow">&#8249;</div>
-  <div class="scroll-arrow right-arrow">&#8250;</div>
+      <!-- Introduction to the company Section (Larger image and text) -->
+      <section class="welcome-section" aria-label="Introduction to Root Flowers">
+        <img src="welcome-image.jpg" alt="Welcome to Root Flowers Image" class="welcome-image">
+        <div class="welcome-text">
+          <h2>Welcome to Root Flowers</h2>
+          <p>At Root Flowers, we love turning moments into memories with beautiful blooms. From heartfelt hand bouquets, festive CNY decorations, vibrant grand opening flowers, to joyful graduation arrangements—we’ve got the perfect flowers for every occasion.</p>
+        </div>
+      </section>
 
-  <!-- Clickable dots (positioned inside/at bottom of image for navigation) -->
-  <div class="carousel-indicators">
-    <label for="slide1" class="dot"></label>
-    <label for="slide2" class="dot"></label>
-    <label for="slide3" class="dot"></label>
-  </div>
-</div>
-<br>
+    <!-- Latest Promotions Section  -->
 
-    <!-- Introduction to the company Section (Larger image and text) -->
-    <section class="welcome-section" aria-label="Introduction to Root Flowers">
-      <img src="welcome-image.jpg" alt="Welcome to Root Flowers Image" class="welcome-image">
-      <div class="welcome-text">
-        <h2>Welcome to Root Flowers</h2>
-        <p>At Root Flowers, we love turning moments into memories with beautiful blooms. From heartfelt hand bouquets, festive CNY decorations, vibrant grand opening flowers, to joyful graduation arrangements—we’ve got the perfect flowers for every occasion.</p>
+    <section class="profile-section">
+      <h2>Latest Promotions</h2>
+      <div class="profile-grid">
+        <div class="profile-item">
+          <div class="profile-image">
+            <img src="" alt="Latest Promotion Image">
+          </div>
+          <div class="profile-text">
+            <h3>Latest Promotion </h3>
+          </div>
+          <a href="Promotion.html" class="profile-button">Click Here To Go</a>
+        </div>
       </div>
     </section>
 
-  <!-- Latest Promotions Section (Unified classes for shared CSS) -->
-  <section class="carousel-section">
-    <h2>Latest Promotions</h2>
-    
-    <div class="slideshow-container content-carousel"> <!-- Reuses .slideshow-container; unified .content-carousel -->
-      <!-- Radio inputs for slide control (hidden; reuses .slide-input) -->
-      <input type="radio" id="promo1" name="promotions" class="slide-input" checked>
-      <input type="radio" id="promo2" name="promotions" class="slide-input">
-      <input type="radio" id="promo3" name="promotions" class="slide-input">
-
-      <!-- Full-width slides with image + text (reuses .carousel-inner and .mySlides) -->
-      <div class="carousel-inner">
-        <!-- Promotion 1 -->
-        <div class="mySlides content-slide"> <!-- Reuses .mySlides; unified .content-slide -->
-          <div class="content-image"> <!-- Unified .content-image -->
-            <img src="promo-image1.jpg" alt="Promotion 1 Image">
+    <!-- Latest News Section (Unified classes for shared CSS) -->
+    <section class="profile-section">
+      <h2>Latest News</h2>
+      <div class="profile-grid">
+        <div class="profile-item">
+          <div class="profile-image">
+            <img src="" alt="Latest News Image">
           </div>
-          <div class="content-text"> <!-- Unified .content-text -->
-            <h3>First-Time Purchase Special</h3>
-            <p>New to Root Flowers? We’d love to welcome you with something extra sweet! For your very first order, enjoy 10% OFF any bouquet or arrangement—whether it’s a classic hand bouquet, a festive CNY decoration, or flowers for a big celebration. It’s our way of saying thank you for choosing us to be part of your special moments. Every bloom is freshly picked, carefully arranged, and wrapped with love, so your first Root Flowers experience will be nothing short of memorable. Don’t miss out—your first bouquet is waiting to make someone smile!</p>
+          <div class="profile-text">
+            <h3>Latest News</h3>
           </div>
-        </div>
-
-        <!-- Promotion 2 -->
-        <div class="mySlides content-slide"> <!-- Unified .content-slide -->
-          <div class="content-image"> <!-- Unified .content-image -->
-            <img src="promo-image2.jpg" alt="Promotion 2 Image">
-          </div>
-          <div class="content-text"> <!-- Unified .content-text -->
-            <h3>Graduation Blooms Bundle</h3>
-            <p>Graduation day is a once-in-a-lifetime moment—and every achievement deserves flowers as bright as the future ahead. This season, Root Flowers is offering a special graduation package: get a graduation bouquet + a mini gift add-on (like a plush bear or balloon) at a discounted bundle price. Perfect for surprising your favorite graduate with flowers that say “Congratulations, we’re proud of you!” Each bouquet is crafted with vibrant, cheerful flowers designed to capture the joy of the occasion. Celebrate success, new beginnings, and unforgettable memories with blooms that speak louder than words.</p>
-          </div>
-        </div>
-
-        <!-- Promotion 3 -->
-        <div class="mySlides content-slide"> <!-- Unified .content-slide -->
-          <div class="content-image"> <!-- Unified .content-image -->
-            <img src="promo-image3.jpg" alt="Promotion 3 Image">
-          </div>
-          <div class="content-text"> <!-- Unified .content-text -->
-            <h3>Learn & Bloom Workshop Special</h3>
-            <p>Always wanted to try your hand at floral design? Now’s the time! Join our exclusive flower workshop classes, and when you bring a friend, you’ll both receive RM20 off your seats. Together, you’ll learn the art of arranging flowers, discover creative tips, and walk away with your very own handmade bouquet to take home. It’s not just a class—it’s a fun, relaxing experience that lets you connect with flowers (and with friends!) in a whole new way. Perfect for beginners or anyone looking to explore a new hobby. Seats are limited, so reserve yours soon!</p>
-          </div>
+          <a href="News.html" class="profile-button">Click Here To Go</a>
         </div>
       </div>
-
-      <!-- Decorative arrow indicators (reuses .scroll-arrow classes; non-functional) -->
-      <div class="scroll-arrow left-arrow">&#8249;</div>
-      <div class="scroll-arrow right-arrow">&#8250;</div>
-
-      <!-- Clickable dots (reuses .carousel-indicators and .dot) -->
-      <div class="carousel-indicators">
-        <label for="promo1" class="dot"></label>
-        <label for="promo2" class="dot"></label>
-        <label for="promo3" class="dot"></label>
-      </div>
-    </div>
-  </section>
-
-  <!-- Latest News Section (Unified classes for shared CSS) -->
-  <section class="carousel-section">
-    <h2>Latest News</h2>
-    
-    <div class="slideshow-container content-carousel"> <!-- Reuses .slideshow-container; unified .content-carousel -->
-      <!-- Radio inputs for slide control (hidden; reuses .slide-input) -->
-      <input type="radio" id="news1" name="news" class="slide-input" checked>
-      <input type="radio" id="news2" name="news" class="slide-input">
-      <input type="radio" id="news3" name="news" class="slide-input">
-
-      <!-- Full-width slides with image + text (reuses .carousel-inner and .mySlides) -->
-      <div class="carousel-inner">
-        <!-- News 1 -->
-        <div class="mySlides content-slide"> <!-- Reuses .mySlides; unified .content-slide -->
-          <div class="content-image"> <!-- Unified .content-image -->
-            <img src="news-image1.jpg" alt="Sunflower Bundle News Image">
-          </div>
-          <div class="content-text"> <!-- Unified .content-text -->
-            <h3>Say Hello to Our Sunflower Bundle</h3>
-            <p>Bright, bold, and full of cheer—our new Sunflower Bundle has just arrived at Root Flowers! Perfect for birthdays, congratulations, or simply to send some sunshine to someone’s day, this bundle includes a stunning sunflower bouquet paired with a little surprise gift to make it extra special. Sunflowers symbolize positivity and happiness, making them the perfect choice when words aren’t enough. Available for a limited time only, so grab yours and let the sunshine in!</p>
-          </div>
-        </div>
-
-        <!-- News 2 -->
-        <div class="mySlides content-slide"> <!-- Unified .content-slide -->
-          <div class="content-image"> <!-- Unified .content-image -->
-            <img src="news-image2.jpg" alt="Graduation Collection News Image">
-          </div>
-          <div class="content-text"> <!-- Unified .content-text -->
-            <h3>New Graduation Collection Launch</h3>
-            <p>Good news for all proud parents, friends, and graduates! Root Flowers has launched a brand-new Graduation Collection featuring fresh, modern bouquet designs perfect for celebrating this special milestone. From classic roses to colorful mixed blooms, we’ve curated arrangements that truly capture the spirit of achievement. Each bouquet can be paired with fun add-ons like balloons, plushies, or personalized cards to make the day even more memorable. Celebrate success the Root Flowers way—with flowers that shine as bright as the graduates themselves!</p>
-          </div>
-        </div>
-
-        <!-- News 3 -->
-        <div class="mySlides content-slide"> <!-- Unified .content-slide -->
-          <div class="content-image"> <!-- Unified .content-image -->
-            <img src="news-image3.jpg" alt="Roses Reimagined News Image">
-          </div>
-          <div class="content-text"> <!-- Unified .content-text -->
-            <h3>Roses, Reimagined at Root Flowers</h3>
-            <p>Romance, elegance, and timeless beauty—our new rose collection is here! From classic red roses for love, to pastel shades for friendship and gentle surprises, we’ve designed fresh arrangements that fit every mood and moment. Each bouquet is wrapped with care and thought, making it the perfect choice for anniversaries, birthdays, or just because. With Root Flowers’ roses, you don’t need a special occasion—because every day is the right day to say it with flowers.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Decorative arrow indicators (reuses .scroll-arrow classes; non-functional) -->
-      <div class="scroll-arrow left-arrow">&#8249;</div>
-      <div class="scroll-arrow right-arrow">&#8250;</div>
-
-      <!-- Clickable dots (reuses .carousel-indicators and .dot) -->
-      <div class="carousel-indicators">
-        <label for="news1" class="dot"></label>
-        <label for="news2" class="dot"></label>
-        <label for="news3" class="dot"></label>
-      </div>
-    </div>
-  </section>
+    </section>
 </main>
 
   <!-- Footer -->
   <footer>
     <div class="footer-content">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="activities.html">Activities</a>
       <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
+      <a href="enhancement.html">Enhancements</a>
+      <a href="Acknowledgements.html">Acknowledgements</a>
     </div>
   </footer>
 </body>
