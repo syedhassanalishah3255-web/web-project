@@ -610,3 +610,23 @@ main {
 .profile-table td {
   background-color: white; 
 }
+
+.profile-mail-button {
+  display: block;         
+  margin: 1.5rem auto 0;   
+  padding: 0.8rem 1.8rem;
+  background-color: #355E3B;
+  color: #E6DDC6;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  width: max-content;     
+}
+
+.profile-mail-button:hover {
+  background-color: #2F4F2F; /* Darker green on hover */
+  color: #E6DDC6;
+}
