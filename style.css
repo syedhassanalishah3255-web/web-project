@@ -271,135 +271,6 @@ main {
 }
 
 
-/* Carousel Sections */
-.carousel-section {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  color: #2F4F2F;
-  max-width: 1000px; /* Match main content width */
-  margin-left: auto;
-  margin-right: auto;
-  position: relative; /* Ensure (dots) position correctly */
-}
-
-.carousel-section h2 {
-  color: #355E3B;
-  font-size: 1.9rem;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/*  Content Carousel  */
-.content-carousel {
-  height: 350px !important; /* Medium height (overrides slideshow's 600px) */
-  background-color: #F5F5F0; /* Subtle background */
-  position: relative; /* Ensure dots position relative to this */
-}
-
-/* Slide Positioning (Promo Specific) */
-#promo1:checked ~ .carousel-inner {
-  transform: translateX(0);
-}
-
-#promo2:checked ~ .carousel-inner {
-  transform: translateX(-33.333%);
-}
-
-#promo3:checked ~ .carousel-inner {
-  transform: translateX(-66.666%);
-}
-
-/*Active Dots (Promo Specific)*/
-#promo1:checked ~ .carousel-indicators label[for="promo1"],
-#promo2:checked ~ .carousel-indicators label[for="promo2"],
-#promo3:checked ~ .carousel-indicators label[for="promo3"] {
-  background-color: #E6DDC6 !important; /* Active dot in full cream */
-}
-
-/*  Slide Positioning (News-specific) */
-#news1:checked ~ .carousel-inner {
-  transform: translateX(0);
-}
-
-#news2:checked ~ .carousel-inner {
-  transform: translateX(-33.333%);
-}
-
-#news3:checked ~ .carousel-inner {
-  transform: translateX(-66.666%);
-}
-
-/*Active Dots for News */
-#news1:checked ~ .carousel-indicators label[for="news1"],
-#news2:checked ~ .carousel-indicators label[for="news2"],
-#news3:checked ~ .carousel-indicators label[for="news3"] {
-  background-color: #E6DDC6 !important; /* Active dot in full cream */
-}
-
-/* Content Slide */
-.content-slide {
-  display: flex;
-  align-items: center;
-  padding: 1rem; 
-  box-sizing: border-box;
-}
-
-/* Image Area  */
-.content-image {
-  flex: 0 0 40%; 
-  height: 100%;
-  margin-right: 1rem;
-}
-
-.content-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 6px;
-  display: block;
-}
-
-/* Text Area */
-.content-text {
-  flex: 1; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 0.5rem;
-  overflow-y: auto; 
-  height: 100%;
-}
-
-.content-text h3 {
-  color: #355E3B;
-  font-size: 1.3rem;
-  margin: 0 0 0.8rem 0;
-  font-weight: 600;
-}
-
-.content-text p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0;
-  color: #2F4F2F;
-}
-
-/*Dots Positioning */
-.content-carousel .carousel-indicators {
-  bottom: 10px !important; /* Inside the carousel, overlaid on content (visible and not clipped) */
-  z-index: 4; /* Higher z-index to ensure on top of text/images */
-}
-
-/* Dot Visibility */
-.content-carousel .dot {
-  display: inline-block !important; /* Force visibility */
-  opacity: 1; /* Ensure not transparent/hidden */
-  background-color: rgba(230, 221, 198, 0.5) !important; /* Default semi-transparent */
-}
-
 /* Footer styling */
 footer {
   background-color: #355E3B; /* Match header */
@@ -505,24 +376,35 @@ footer {
   color: #E6DDC6;
 }
 
-/* Button styling */
 .profile-button {
   display: inline-block;
   background-color: #355E3B; 
   color: #E6DDC6; 
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
+  padding: 0.9rem 1.8rem; 
+  border-radius: 8px;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  width: 100%; /* Full width*/ 
+  font-size: 1.1rem;
+  font-weight: 600; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Full width */
   box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(53, 94, 59, 0.3); /* Subtle shadow for depth */
+  cursor: pointer;
+  user-select: none; /* Prevent text selection on click */
 }
 
-.profile-button:hover {
-  background-color: #2F4F2F; /* Darker green on hover */
+.profile-button:hover,
+.profile-button:focus {
+  background-color: #2F4F2F; /* Darker green on hover/focus */
   color: #E6DDC6;
+  outline: none; /* Remove default outline */
+}
+
+.profile-button:active {
+  background-color: #27432a; /* Even darker on active press */
+  box-shadow: 0 2px 4px rgba(53, 94, 59, 0.6);
+  transform: translateY(1px); /* Slight press effect */
 }
 
 /* Profile Styling*/
