@@ -112,7 +112,7 @@ main {
   padding: 0 1rem;
 }
 
-/* Slideshow for  news and promotion*/
+/* Slideshow*/
 .slideshow-container {
   max-width: 100%;
   position: relative;
@@ -245,10 +245,11 @@ main {
 }
 
 .welcome-image {
-  width: 300px; 
+  width: 200px; 
   height: auto;
   flex-shrink: 0; /* so image cant shrink */
   border-radius: 8px; 
+  height: 200px;
 }
 
 .welcome-text {
