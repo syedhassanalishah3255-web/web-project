@@ -113,7 +113,6 @@ a:hover { color: var(--brand-strong); }
 }
 
 /* Branding */
-/* Branding */
 .branding {
   display: flex;
   align-items: center;
@@ -122,14 +121,14 @@ a:hover { color: var(--brand-strong); }
 }
 
 .logo {
-  height: 75px; /* a bit bigger logo */
+  height: 80px; /* a bit bigger logo */
   width: auto;
 }
 
 .brand-name {
   font-family: 'ADLaM Display', cursive;
   font-weight: 700;
-  font-size: 2.4rem; /* bigger text */
+  font-size: 2rem; /* bigger text */
   color: var(--brand);
 }
 
@@ -248,3 +247,4 @@ a:hover { color: var(--brand-strong); }
 /* ==========================
    GLOBAL VARIABLES & BASE ENDS
    ========================== */
+
