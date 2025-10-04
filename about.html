@@ -1,111 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="description" content="Index"/>
-  <meta name="keywords" content="HTML,CSS"/>
-  <meta name="author" content="Christian Deniro,Hassan,Ali"/>
-  <title>Root Flowers</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root Flower</title>
+
+  <!-- Modern sleek font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <!-- Logo and company name -->
-    <div class="logo-container">
-      <h1>ROOT FLOWER</h1>
-      <img src="Logo.jpeg" alt="Root Flower Logo"/>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header">
+    <!-- Left: Logo + Brand -->
+    <div class="branding">
+      <img class="logo" src="Photos/Logo.jpg" alt="Root Flower logo">
+      <span class="brand-name">Root Flower</span>
     </div>
-    <!-- Navigation menu -->
-    <nav>
-      <a href="index.html">Home</a>
 
-      <div class="dropdown-container">
-        <a href="#products.html" class="nav-link">Products</a>
-        <ul class="dropdown">
-          <li><a href="hand-bouquet.html">Hand Bouquet</a></li>
-          <li><a href="cny-decoration.html">CNY Decoration</a></li>
-          <li><a href="grand-opening.html">Grand Opening</a></li>
-          <li><a href="graduation.html">Graduation</a></li>
-        </ul>
-      </div>
+    <!-- Center: Navigation -->
+    <nav aria-label="Main navigation">
+      <ul class="menu">
+        <li><a href="index.html" class="active">Home</a></li>
 
-      <div class="dropdown-container">
-        <a href="Activities.html" class="nav-link">Activities</a>
-        <ul class="dropdown">
-          <li><a href="Workshop.html">Workshop</a></li>
-          <li><a href="Promotion.html">Promotion</a></li>
-        </ul>
-      </div>
+        <!-- Products (heart + arrow, dropdown) -->
+        <li class="has-sub">
+          <a href="products.html"><span class="heart">♥</span> Products <span class="arrow">▾</span></a>
+          <ul class="submenu">
+            <li><a href="product1.html">Hand bouquet</a></li>
+            <li><a href="product2.html">CNY decoration</a></li>
+            <li><a href="product3.html">Grand Opening</a></li>
+            <li><a href="product4.html">Graduation</a></li>
+          </ul>
+        </li>
 
+        <!-- Activities (heart + arrow, dropdown) -->
+        <li class="has-sub">
+          <a href="Activities.html"><span class="heart">♥</span> Activities <span class="arrow">▾</span></a>
+          <ul class="submenu">
+            <li><a href="workshop.html">Workshop</a></li>
+            <li><a href="promotion.html">Promotion</a></li>
+          </ul>
+        </li>
 
-      <a href="about.html" class="nav-link">About Us</a>
-
-      <a href="enquiry.html">Enquiry</a>
-      
-      <a href="membership.html">Membership</a>
+        <!-- Single links (no arrows) -->
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="registration.html">Membership</a></li>
+      </ul>
     </nav>
+
+    <!-- Right: Login icon only -->
+    <div class="header-icons">
+      <a class="icon user" href="login.html" aria-label="Login">👤</a>
+    </div>
   </header>
 
 <main>
-  <!-- Profile Main Menu Section  -->
+  <!-- Profile Main Menu Section (Clean individual card flips) -->
   <section class="profile-section">
     <h2>Group Profile Menu</h2>
     
     <div class="profile-grid">
-      <!-- Profile Item 1 -->
+      <!-- Card 1 -->
       <div class="profile-item">
-        <div class="profile-image">
-          <img src="Profile.jpeg" alt="Christian Deniro Profile Picture">
+        <!-- Front: Image + Text -->
+        <div class="profile-front">
+          <div class="profile-image">
+            <img src="Photos/profile1.jpg" alt="Christian Deniro Profile Picture">
+          </div>
+          <div class="profile-text">
+            <h3>Christian Deniro</h3>
+            <p>ID: 105799413</p>
+          </div>
         </div>
-        <div class="profile-text">
-          <h3>Christian Deniro</h3>
-          <p>ID: 105799413</p>
+        
+        <!-- Back: Quote + Button -->
+        <div class="profile-back">
+          <blockquote class="profile-quote">I Need Some Milk</blockquote>
+          <a href="profile1.html" class="profile-button">Go to Profile</a>
         </div>
-        <a href="profile1.html" class="profile-button">Go to Profile</a>
       </div>
 
-      <!-- Profile Item 2 -->
-   <div class="profile-grid">
+      <!-- Card 2 -->
       <div class="profile-item">
-        <div class="profile-image">
-          <img src="Profile2.jpeg" alt="Hassan Profile Picture">
+        <!-- Front: Image + Text -->
+        <div class="profile-front">
+          <div class="profile-image">
+            <img src="Profile2.jpeg" alt="Hassan Profile Picture">
+          </div>
+          <div class="profile-text">
+            <h3>Hassan</h3>
+            <p>ID: </p>
+          </div>
         </div>
-        <div class="profile-text">
-          <h3>Hassan</h3>
-          <p>ID: </p>
+        
+        <!-- Back: Quote + Button -->
+        <div class="profile-back">
+          <blockquote class="profile-quote">Put quote here for Hassan</blockquote>
+          <a href="profile2.html" class="profile-button">Go to Profile</a>
         </div>
-        <a href="profile2.html" class="profile-button">Go to Profile</a>
       </div>
 
-      <!-- Profile Item 3 -->
-   <div class="profile-grid">
+      <!-- Card 3 -->
       <div class="profile-item">
-        <div class="profile-image">
-          <img src="Profile2.jpeg" alt="Ali Profile Picture">
+        <!-- Front: Image + Text -->
+        <div class="profile-front">
+          <div class="profile-image">
+            <img src="Profile2.jpeg" alt="Ali Profile Picture">
+          </div>
+          <div class="profile-text">
+            <h3>Ali</h3>
+            <p>ID:</p>
+          </div>
         </div>
-        <div class="profile-text">
-          <h3>Ali</h3>
-          <p>ID:</p>
+        
+        <!-- Back: Quote + Button -->
+        <div class="profile-back">
+          <blockquote class="profile-quote">Put quote here for Ali</blockquote>
+          <a href="profile3.html" class="profile-button">Go to Profile</a>
         </div>
-        <a href="profile3.html" class="profile-button">Go to Profile</a>
       </div>
+    </div>
   </section>
 </main>
-
-  <!-- Footer -->
-  <footer>
+<!-- ====== FOOTER ====== -->
+<footer class="site-footer">
     <div class="footer-content">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="activities.html">Activities</a>
-      <a href="about.html">About Us</a>
-      <a href="about.html">About Us</a>
-      <a href="enhancement.html">Enhancements</a>
-      <a href="Enquiry.html">Enquiry</a>
-      <a href="membership.html">Membership</a>
+      <p>&copy; 2025 Root Flower — All rights reserved.</p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-menu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
-</body>
-</html>
 </body>
 </html>
