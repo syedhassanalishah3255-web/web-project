@@ -1,91 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="description" content="Index"/>
-  <meta name="keywords" content="HTML,CSS"/>
-  <meta name="author" content="Christian Deniro,Hassan,Ali"/>
-  <title>Root Flowers</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root Flower</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-      <header>
-    <!-- Logo and company name -->
-    <div class="logo-container">
-      <h1>ROOT FLOWER</h1>
-      <img src="Logo.jpeg" alt="Root Flower Logo"/>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header">
+    <!-- Left: Logo + Brand -->
+    <div class="branding">
+      <img class="logo" src="Photos/Logo.jpg" alt="Root Flower logo">
+      <span class="brand-name">Root Flower</span>
     </div>
-    <!-- Navigation menu -->
-    <nav>
-      <a href="index.html">Home</a>
 
-      <div class="dropdown-container">
-        <a href="#products.html" class="nav-link">Products</a>
-        <ul class="dropdown">
-          <li><a href="hand-bouquet.html">Hand Bouquet</a></li>
-          <li><a href="cny-decoration.html">CNY Decoration</a></li>
-          <li><a href="grand-opening.html">Grand Opening</a></li>
-          <li><a href="graduation.html">Graduation</a></li>
-        </ul>
-      </div>
+    <!-- Center: Navigation -->
+    <nav aria-label="Main navigation">
+      <ul class="menu">
+        <li><a href="index.html" class="active">Home</a></li>
 
-      <div class="dropdown-container">
-        <a href="Activities.html" class="nav-link">Activities</a>
-        <ul class="dropdown">
-          <li><a href="Workshop.html">Workshop</a></li>
-          <li><a href="Promotion.html">Promotion</a></li>
-        </ul>
-      </div>
+        <!-- Products (icon + arrow, dropdown) -->
+        <li class="has-sub">
+          <a href="products.html">
+            <i class="fa-solid fa-heart"></i> Products <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="submenu">
+            <li><a href="product1.html">Hand bouquet</a></li>
+            <li><a href="product2.html">CNY decoration</a></li>
+            <li><a href="product3.html">Grand Opening</a></li>
+            <li><a href="product4.html">Graduation</a></li>
+          </ul>
+        </li>
 
-      <a href="about.html" class="nav-link">About Us</a>
+        <!-- Activities (icon + arrow, dropdown) -->
+        <li class="has-sub">
+          <a href="Activities.html">
+            <i class="fa-solid fa-heart"></i> Activities <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="submenu">
+            <li><a href="workshop.html">Workshop</a></li>
+            <li><a href="promotion.html">Promotion</a></li>
+          </ul>
+        </li>
 
-      <a href="enquiry.html">Enquiry</a>
-      
-      <a href="membership.html">Membership</a>
+        <!-- Single links -->
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="registration.html">Membership</a></li>
+      </ul>
     </nav>
-</header>
-<main>
 
-  <section class="profile-section">
-    <h2>Activities</h2>
-    
-    <div class="profile-grid">
-      <div class="profile-item">
-        <div class="profile-image">
-          <img src="Photos/Workshop.png" alt="Workshop Image">
-        </div>
-        <div class="profile-text">
-          <h3>Interested in our Workshop Class?Join our Workshop Classes right here</h3>
-        </div>
-        <a href="Workshop.html" class="profile-button">Click Here</a>
-      </div>
-
-    <div class="profile-grid">
-      <div class="profile-item">
-        <div class="profile-image">
-          <img src="Photos/promotion1.png" alt="Promotion Image">
-        </div>
-        <div class="profile-text">
-          <h3>Want To Join Our Promotion? Click To Go To Our Promotion Here</h3>
-        </div>
-        <a href="Promotion.html" class="profile-button">Click Here</a>
-      </div>
-
-      
-</main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="activities.html">Activities</a>
-      <a href="about.html">About Us</a>
-      <a href="Enquiry.html">Enquiry</a>
-      <a href="membership.html">Membership</a>
-      <a href="enhancement.html">Enhancements</a>
-      <a href="Acknowledgements.html">Acknowledgements</a>
+    <!-- Right: Login icon -->
+    <div class="header-icons">
+      <a class="icon user" href="login.html" aria-label="Login">
+        <i class="fa-solid fa-user"></i>
+      </a>
     </div>
+  </header>
+  <!-- ====== END HEADER ====== -->
+<main>
+    <h1>Activities</h1>
+
+    <aside>
+      <h3>Did You Know?</h3>
+      <p>Workshops help you create personalized bouquets with expert guidance and hands-on experience.</p>
+    </aside>
+
+    <section>
+      <h2>Upcoming Workshop Classes</h2>
+      <p>Join our flower arranging workshops to learn the art of creating beautiful bouquets.</p>
+
+      <figure>
+        <img src="Photos/Workshop.png" alt="Workshop class in session" style="max-width: 100%;">
+        <figcaption>Participants arranging flowers during our last workshop.</figcaption>
+      </figure>
+
+      <ol>
+        <li>Register online for the workshop.</li>
+        <li>Receive confirmation email.</li>
+        <li>Attend the workshop on the scheduled date.</li>
+        <li>Take home your beautiful bouquet.</li>
+      </ol>
+    </section>
+<br>
+    <section>
+      <h2>Flower Types Used in Workshops</h2>
+      <dl>
+        <dt>Rose</dt>
+        <dd>A classic flower symbolizing love and passion.</dd>
+        <dt>Lily</dt>
+        <dd>Elegant flower often used in celebrations.</dd>
+        <dt>Orchid</dt>
+        <dd>Exotic flower known for its unique shape and colors.</dd>
+      </dl>
+    </section>
+<br>
+  <div class="promotion-grid">
+    <div class="promotion-item">
+      <div class="promotion-image">
+        <img src="Photos/Workshop.png" alt="Workshop Invitation Image">
+      </div>
+      <div class="promotion-text">
+        <h3>Interested in our Workshop? Register to our Workshop Classes right here</h3>
+      </div>
+      <a href="workshop.html" class="promotion-button">Click Here To Go</a>
+    </div>
+    <div class="promotion-item">
+      <div class="promotion-image">
+        <img src="Photos/promotion1.png" alt="Promotion Image">
+      </div>
+      <div class="promotion-text">
+        <h3>Interested in our Promotion? Check it out here</h3>
+      </div>
+      <a href="promotion.html" class="promotion-button">Click Here To Go</a>
+    </div>
+  </div>
+
+<br>
+      <table>
+        <thead>
+          <tr>
+            <th>Workshop Date</th>
+            <th>Time</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aug 30, 2025</td>
+            <td>10:00 AM - 12:00 PM</td>
+            <td>Root Flower Studio</td>
+          </tr>
+          <tr>
+            <td>Sept 13, 2025</td>
+            <td>2:00 PM - 4:00 PM</td>
+            <td>Root Flower Studio</td>
+          </tr>
+          <tr>
+            <td>Oct 18, 2025</td>
+            <td>1:00 PM - 3:00 PM</td>
+            <td>Root Flower Studio</td>
+          </tr>
+        </tbody>
+      </table>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Root Flower — All rights reserved.</p>
+    <nav aria-label="Footer navigation">
+      <ul class="footer-menu">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="delivery.html">Delivery Info</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </nav>
   </footer>
 
 </body>
