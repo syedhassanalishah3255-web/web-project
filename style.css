@@ -1,254 +1,447 @@
-/* Main Menu */
+
+/* ==========================
+   GLOBAL VARIABLES & BASE
+   ========================== */
+:root {
+  --ink: #202022;
+  --muted: #6f6f76;
+  --line: #e9e9ef;
+  --brand: #7d1b5a;         /* main accent */
+  --brand-strong: #c01f62;  /* hover accent */
+  --bg: #ffffff;
+  --light-bg: #f9f9fc;
+
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --transition: all 0.25s ease;
+  --brand-light: #ffc0cb; 
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
 body {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
   margin: 0;
-  font-family: 'Times New Roman', Times, serif, sans-serif;
-  background-color: #F5F5F0; 
-  color: #333; 
-  line-height: 1.6; 
+  padding : 0;
 }
 
-/* Header styling */
-header {
-  display: flex; /* Use flex for layout */
-  align-items: center; 
-  justify-content: space-between; /* Space between logo and nav(i think looks better la) */
-  background-color: #355E3B; 
-  padding: 0 2rem; 
-  height: 80px; 
-  position: sticky; /* Stick header to top on scroll(Sticky header(Should be enhancement?))*/
-  top: 0; /* Stick at top */
-  z-index: 100; /* make sure header is above other content*/
+/* ==========================
+   GLOBAL LINKS & EFFECTS
+   ========================== */
+a {
+  color: var(--brand);
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover { color: var(--brand-strong); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--brand);
+  color: var(--brand);
+  background: transparent;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.btn-primary:hover {
+  background: var(--brand-strong);
+  border-color: var(--brand-strong);
 }
 
-/* Container for logo image and text*/
-.logo-container {
+/* Underline hover effect */
+.underline-hover {
+  position: relative;
+  display: inline-block;
+}
+.underline-hover::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: -4px;
+  width: 50%;
+  height: 2px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .25s ease;
+}
+.underline-hover:hover::after,
+.underline-hover.active::after {
+  transform: scaleX(1);
+}
+
+/* Card hover */
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.card:hover { transform: translateY(-5px); }
+
+/* ==========================
+   HEADER + NAVIGATION
+   ========================== */
+.site-header {
   display: flex;
-  align-items: center; 
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 34px; /* slightly bigger */
+  background: linear-gradient(90deg, #ffe6f0, #ffffff);
+  border-bottom: 2px solid var(--line);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin-bottom: 0;  
+  padding-bottom: 22px; 
 }
 
-/* Logo text styling*/
-.logo-container h1 {
-  color: #E6DDC6; 
-  margin: 0; 
-  font-size: 2rem; /*rem means root em and = 16 px and rem better be used in font rather than px so its responsive to the user font settings rather than px thats absolute*/
-  font-weight: bold; 
-  font-family: 'Times New Roman', Times, serif;
+/* Branding */
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 20px; /* pushes logo + text slightly to the right */
 }
 
-/* Logo styling*/
-.logo-container img {
-  width: 80px;
-  height: auto; 
-  margin-left: 1rem; 
+.logo {
+  height: 80px; /* a bit bigger logo */
+  width: auto;
 }
 
-/* Navigation bar styling */
-nav {
-  display: flex; /* Horizontal layout for links*/
-  align-items: center; 
+.brand-name {
+  font-family: 'ADLaM Display', cursive;
+  font-weight: 700;
+  font-size: 2rem; /* bigger text */
+  color: var(--brand);
 }
 
-/* Navigation links styling */
-nav a,
-.nav-link {
-  color: #E6DDC6; 
-  text-decoration: none; 
-  margin: 0 1rem; /* spacing between links */
-  font-weight: 600; 
-  font-size: 1.1rem; 
-  transition: color 0.3s ease; /*color change on hover*/
+/* Menu */
+.menu {
+  display: flex;
+  gap: 24px; 
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0;
 }
-
-/* Navigation link hover effect */
-nav a:hover,
-.nav-link:hover {
-  color: #ffffff; /* White color on hover */
+.menu li { position: relative; }
+.menu a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ink);
+  position: relative;
+  padding-bottom: 3px;
 }
+.menu a:hover,
+.menu a.active {
+  color: var(--brand);
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  bottom: -4px;
+  width: 50%;
+  height: 2px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .25s ease;
+}
+.menu a:hover::after,
+.menu a.active::after { transform: scaleX(1); }
 
-/* Dropdown for Products and About Us*/
-.dropdown {
+/* Dropdown */
+.submenu {
   display: none;
   position: absolute;
-  top: 100%; /*to put Below the nav link */
+  top: 120%;
   left: 0;
-  background-color: #355E3B; /* Match header color but probably will change later*/
   list-style: none;
-  padding: 0;
-  margin: 0;
-  min-width: 150px; /*Set the minimum width,So it doesnt get smaller*/
-  z-index: 101; /*Make it above other content*/
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 200px;
 }
-
-.dropdown li {
-  padding: 0;
-}
-
-.dropdown li a {
+.submenu li a {
   display: block;
-  padding: 0.8rem 1rem;
-  margin: 0;
-  color: #E6DDC6;
-  transition: background-color 0.3s ease;
+  padding: 0.6rem 1rem;
+  color: var(--ink);
+}
+.submenu li a:hover {
+  background: var(--light-bg);
+  color: var(--brand-strong);
+}
+.has-sub:hover .submenu { display: block; }
+
+/* Header icons */
+.header-icons .icon {
+  display: inline-flex;
+  width: 42px; height: 42px;
+  font-size: 1.2rem; 
+  align-items: center; justify-content: center;
+  border-radius: var(--radius);
+  background: var(--light-bg);
+  color: var(--muted);
+  transition: var(--transition);
+}
+.header-icons .icon:hover {
+  background: var(--brand-strong);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
-.dropdown li a:hover {
-  background-color: #6B8E23; /* Olive green on hover */
-  color: #ffffff;
+/* Responsive header */
+@media (max-width: 980px) {
+  .site-header { flex-wrap: wrap; }
+  .menu { flex-wrap: wrap; gap: 18px; }
+  .branding .brand-name { font-size: 1.8rem; }
 }
 
-/*dropdown on hover (For Products and About Us) */
-.dropdown-container {
-  position: relative;
+/* ==========================
+   FOOTER
+   ========================== */
+.site-footer {
+  background: linear-gradient(90deg, rgba(204,231,255,0.8), rgba(255,214,235,0.8));
+  border-top: 2px solid var(--line);
+  padding: 22px 28px;
+  text-align: center;
 }
-
-.dropdown-container:hover .dropdown {
-  display: block;
+.site-footer p {
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-weight: 500;
 }
+.footer-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  list-style: none;
+}
+.footer-menu a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  transition: var(--transition);
+}
+.footer-menu a:hover {
+  color: var(--brand);
+  transform: translateY(-2px);
+}
+/* ==========================
+   GLOBAL VARIABLES & BASE ENDS
+   ========================== */
 
 /* Main content container */
 main {
-  max-width: 1000px;
-  margin: 2rem auto; /* Margin auto to make it centered */
-  padding: 0 1rem;
+     max-width: 1000px;
+     margin: 0 auto 2rem auto; 
+     padding: 0 ;
+     margin-top: 0 ;
+     position: relative;  /* Allows absolute positioning of slideshow */
 }
 
-/* Slideshow*/
+/* ==========================
+   Slideshow / Hero Banner
+   ========================== */
+
 .slideshow-container {
-  max-width: 100%;
-  position: relative;
-  margin: auto;
-  height: 600px; 
-  overflow: hidden; 
-  border-radius: 12px; 
-  background-color: white; 
+  width: 100vw;                   
+  height: 25rem;                   
+  margin: 0 0 2rem 0 !important;   
+  margin-left: -50vw !important;   /* Negative margin: Pulls left edge to screen left (centers the full-width) */
+  margin-right: -50vw !important;  /* Negative margin: Pulls right edge to screen right (no empty space) */
+  padding: 0 !important;          
+  border-radius: 0;               
+  overflow: hidden;              
+  background: black;             
+  position: relative;              /* For overlay positioning */
+  display: block !important;    
+  box-sizing: border-box;         
 }
-
-.slide-input {
-  display: none; /* Hide top left side dots */
-}
-
-.carousel-inner {
-  display: flex;
-  width: 300%; /* For 3 slides */
-  height: 100%;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* slide transition */
-  transform: translateX(0); /* Default position */
-}
-
-/* Slide positioning*/
-#slide1:checked ~ .carousel-inner {
-  transform: translateX(0); /* Show first slide */
-}
-
-#slide2:checked ~ .carousel-inner {
-  transform: translateX(-33.333%); /* Slide goes left then Show second slide */
-}
-
-#slide3:checked ~ .carousel-inner {
-  transform: translateX(-66.666%); /*Slide goes left then Show third slide */
-}
-
-.mySlides {
-  width: 33.333%; /* Each slide takes 1/3 of the inner width */
-  flex-shrink: 0;
-  height: 100%;
-  position: relative;
-}
-
-.mySlides img {
+/*hero image */
+.hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure images fill nicely */
-  display: block;
-  border-radius: 12px;
+  position: absolute;              /* Absolute to fill precisely (prevents flow issues) */
+  top: 0;
+  left: 0;
 }
 
-/* Decorative arrow indicators (maybe add so u can scroll with it later cuz right now cannot use javascript) */
-.scroll-arrow {
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;               
+  object-position: center center;  /* Explicitly centers image content (no left lean) */
+  display: block;                  
+  min-width: 100vw;                /* Ensures it spans full viewport if needed */
+  min-height: 100%;                /* Full height coverage */
+  filter: brightness(70%);         /* Darkens for overlay readability */
+}
+
+/* Slideshow Overlay */
+.slideshow-overlay {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(53, 94, 59, 0.7); /* Semi-transparent green background */
-  color: #E6DDC6;
-  font-size: 2.5rem;
-  font-weight: bold;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  z-index: 3;
-  pointer-events: none; /* Prevent interference with clicking/touch */
-  transition: background-color 0.3s ease;
-  user-select: none; /* Prevent text selection */
-}
-
-.left-arrow {
-  left: 10px;
-}
-
-.right-arrow {
-  right: 10px;
-}
-
-.scroll-arrow:hover {
-  background-color: rgba(53, 94, 59, 0.9); /* Slightly darker on hover*/
-}
-
-.scroll-arrow {
-  animation: arrowPulse 2s infinite;
-}
-
-/* Clickable dots (at bottom of image for navigation for now since cannot use arrow) */
-.carousel-indicators {
-  position: absolute;
-  bottom: 20px; /* Positioned inside the image area at the bottom */
   left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 3; /* Above images */
+  transform: translate(-50%, -50%);  /* Perfect center alignment */
+  z-index: 2;                       
+  text-align: center;
+  pointer-events: auto;              /* Ensures button is clickable over image */
+  max-width: 80%;                    /* Prevent overflow on smaller screens */
 }
 
-.dot {
-  height: 12px;
-  width: 12px;
-  background-color: rgba(230, 221, 198, 0.5); /* Semi-transparent almost white color so can still see */
-  border-radius: 50%;
-  cursor: pointer; /* Indicates clickable */
-  transition: background-color 0.3s ease;
+/* Hero Text (h2) */
+.hero-text {
+  color: #fff;                       /* White text for visibility on images */
+  font-size: 2.5rem;                 
+  font-weight: 700;                 
+  margin: 0 0 0.5rem 0;              
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Stronger shadow for readability on image */
+  line-height: 1.2;                  
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Subtext (p) */
+.hero-subtext {
+  color: #fff;                   
+  font-size: 1.2rem;             
+  font-weight: 400;                
+  margin: 0 0 1.5rem 0;           
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6); 
+  line-height: 1.4;             
+  opacity: 0.9;                     
+  font-family: 'Poppins', sans-serif;
+}
+
+/*Button */
+.slideshow-overlay .btn {
   display: inline-block;
+  padding: 1rem 2rem;                
+  font-size: 1.2rem;                 
+  font-weight: 700;                  
+  background: transparent;          
+  border: 2px solid #fff;            
+  color: #fff;                       
+  border-radius: var(--radius);
+  transition: var(--transition);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
+  margin-top: 0;                    
+
 }
 
-/* dot styling based on radio selection */
-#slide1:checked ~ .carousel-indicators label[for="slide1"],
-#slide2:checked ~ .carousel-indicators label[for="slide2"],
-#slide3:checked ~ .carousel-indicators label[for="slide3"] {
-  background-color: #E6DDC6; /* Active dot in full cream color so it's visible */
+.slideshow-overlay .btn:hover {
+  background: #fff;                
+  color: #000;                      
+  border-color: #fff;                
+  text-shadow: none;                
+  transform: translateY(-2px) scale(1.05);  
 }
 
-.dot:hover {
-  background-color: #E6DDC6; /* Hover effect for all dots */
+.slideshow-overlay .btn:active {
+  transform: translateY(0) scale(1); 
 }
 
-/* Welcome Section Styling  */
+/* Responsive Scale down text and button on smaller screens for better fit */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2rem;                 /* Smaller on mobile */
+  }
+  
+  .hero-subtext {
+    font-size: 1rem;                 /* Smaller on mobile */
+  }
+  
+  .slideshow-overlay .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .slideshow-overlay {
+    max-width: 90%;                  /* More room on mobile */
+  }
+  
+  .slideshow-container {
+    height: 20rem;                   /* Slightly shorter on mobile for better proportions */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: 1.8rem;               /* Even smaller on very small screens */
+  }
+  
+  .hero-subtext {
+    font-size: 0.95rem;
+  }
+  
+  .slideshow-container {
+    height: 18rem;                   /* Even shorter on tiny screens */
+  }
+}
+@media (max-width: 480px) {
+  .hero-text {
+    font-size: 1.8rem;               /* Even smaller on very small screens */
+  }
+  
+  .hero-subtext {
+    font-size: 0.95rem;
+  }
+  
+  .slideshow-container {
+    height: 18rem;                   /* Even shorter on tiny screens */
+  }
+}
+
+/* ==========================
+   Welcome Section
+   ========================== */
 .welcome-section {
   display: flex;
   align-items: flex-start;
   gap: 2rem; /* space between image and text */
-  background-color: white;
+  background-color: var(--bg);
   padding: 2rem; 
-  border-radius: 8px; 
+  border-radius: var(--radius); 
   margin-bottom: 2rem;
-  color: #2F4F2F;
+  color: var(--ink); 
+  box-shadow: var(--shadow);
+  transition: var(--transition); 
+}
+
+.welcome-section:hover {
+  transform: translateY(-2px); /* Subtle lift on hover, like cards */
 }
 
 .welcome-image {
   width: 200px; 
   height: auto;
   flex-shrink: 0; /* so image cant shrink */
-  border-radius: 8px; 
+  border-radius: var(--radius); 
   height: 200px;
 }
 
@@ -257,97 +450,823 @@ main {
 }
 
 .welcome-section h2 {
-  color: #355E3B;
+  color: var(--brand); 
   font-size: 2rem; 
   margin-top: 0;
   margin-bottom: 1rem;
   text-align: left; 
+  font-weight: 600; 
 }
 
 .welcome-section p {
   font-size: 1.1rem;
   line-height: 1.6; 
-  margin-bottom: 0.8rem; /* spacing*/
-  color: #2F4F2F;
+  margin-bottom: 0.8rem; /* spacing */
+  color: var(--ink); 
 }
 
-
-/* Footer styling */
-footer {
-  background-color: #355E3B; /* Match header */
-  padding: 1rem 2rem;
-  text-align: center;
-  color: #E6DDC6;
-  margin-top: 2rem;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  align-items: center;
-}
-
-.footer-content a {
-  color: #E6DDC6;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.footer-content a:hover {
-  color: #ffffff;
-}
-
-/* About us Section */
-.profile-section {
-  background-color: white;
+/* ==========================
+   Latest News Section
+   ========================== */
+.latest-news-section {
+  background-color: var(--bg); 
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: var(--radius);
   margin-bottom: 2rem;
-  color: #2F4F2F;
+  color: var(--ink); 
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: var(--shadow);
+  text-align: center; 
 }
 
-.profile-section h2 {
-  color: #355E3B;
+.latest-news-section h2 {
+  color: var(--brand);
+  font-size: 1.9rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 600; 
+}
+
+/* News Items Grid */
+.news-grid {
+  display: flex;
+  gap: 1.5rem; /* Space between items */
+  justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.news-item {
+  flex: 1; /* Equal width */
+  min-width: 250px; /* Prevent squishing */
+  max-width: 300px; /* Consistent sizing */
+  background-color: var(--light-bg); /* Subtle light bg for cards */
+  border-radius: var(--radius); 
+  padding: 1.5rem;
+  text-align: left; 
+  transition: var(--transition);
+  box-shadow: var(--shadow); /* Matches cards */
+  border: 1px solid var(--line); /* Subtle border like nav */
+}
+
+.news-item:hover {
+  transform: translateY(-5px); /* Matches card hover */
+  box-shadow: 0 6px 20px rgba(125, 27, 90, 0.1); /* Brand-tinted shadow */
+}
+
+.news-image {
+  width: 100%;
+  height: 150px; 
+  margin-bottom: 1rem;
+  border-radius: var(--radius); 
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.news-text h3 {
+  color: var(--brand); /* Brand accent for titles */
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.news-text p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--muted); /* Subtle muted text */
+}
+
+.news-button {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: transparent; /* Matches .btn style */
+  color: var(--brand);
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.news-button:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ==========================
+Latest Promotions Section
+   ========================== */
+.latest-promotion {
+  background-color: var(--bg); 
+  padding: 2rem;
+  border-radius: var(--radius); 
+  margin-bottom: 2rem;
+  color: var(--ink); 
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow); 
+}
+
+.latest-promotion h2 {
+  color: var(--brand);
   font-size: 1.9rem;
   margin-top: 0;
   margin-bottom: 1.5rem;
   text-align: center;
+  font-weight: 600; 
 }
 
-/* 3 Profile Items Layout */
-.profile-grid {
+/* Promotion Grid Layout  */
+.promotion-grid {
   display: flex;
-  gap: 1.5rem; /* Space between items */
+  gap: 1.5rem; 
   justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens without forcing column stack */
 }
 
-.profile-item {
+.promotion-item {
   flex: 1; /* Equal width for each item */
-  min-width: 250px; /* Minimum width to prevent image from squishing between each other*/
-  max-width: 300px; /* Max width to ensure everythings in place */
-  background-color: #355E3B;
-  border-radius: 8px;
+  min-width: 250px; /* Minimum width to prevent squishing */
+  max-width: 300px; /* Max width to ensure everything fits */
+  background-color: var(--bg); 
+  border-radius: var(--radius); 
   padding: 1rem;
   text-align: center; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* hover effect */
+  transition: var(--transition);
+  box-shadow: var(--shadow); /* Matches cards */
+  color: var(--ink); /* Use global ink for text on white bg */
+  border: 1px solid var(--line); /* Subtle border for definition on white */
 }
 
-.profile-item:hover {
-  transform: translateY(-5px); /* Slight lift on hover */
+.promotion-item:hover {
+  transform: translateY(-5px); /* Matches profile-item hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Neutral shadow on hover  */
 }
 
-/* Image Holder*/
-.profile-image {
+/* Promotion Image Holder  */
+.promotion-image {
   width: 100%;
   height: 150px; 
   margin-bottom: 1rem;
-  border-radius: 6px;
+  border-radius: var(--radius); /* Matches global */
+  overflow: hidden; /* Ensure image fits nicely */
+}
+
+.promotion-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Promotion Text Area (mirrors .profile-text) */
+.promotion-text {
+  margin-bottom: 1rem;
+}
+
+.promotion-text h3 {
+  color: var(--brand); 
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.promotion-text p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--ink); /* Global ink for body text on white */
+}
+
+/* Promotion Button */
+.promotion-button {
+  display: inline-block;
+  background-color: transparent; /* Transparent initially for subtle white theme */
+  color: var(--brand); /* Brand text color */
+  padding: 0.9rem 1.8rem; 
+  border: 2px solid var(--brand); /* Brand border */
+  border-radius: var(--radius); /* Matches global */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600; 
+  transition: var(--transition); /* Matches global */
+  width: 100%; /* Full width */
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection on click */
+}
+
+.promotion-button:hover,
+.promotion-button:focus {
+  background-color: var(--brand-light);
+  color: var(--brand); /* Dark pink text for contrast */
+  border-color: var(--brand-light); /* Light pink border on hover */
+  outline: none; /* Remove default outline */
+  transform: translateY(-2px); /* Lift for consistency */
+}
+
+.promotion-button:active {
+  background-color: var(--brand-strong); 
+  border-color: var(--brand-strong);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px); /* Slight press effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .promotion-grid {
+    flex-direction: row; /* Keep horizontal, but allow wrap */
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .promotion-item {
+    min-width: 280px; /* Slightly larger min-width to encourage side-by-side on tablets */
+    max-width: 45%; /* Allow two per row on medium mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .promotion-grid {
+    flex-direction: column; /* Stack top-to-bottom only on very small screens */
+    align-items: center;
+  }
+  
+  .promotion-item {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Extra small devices (phones in portrait, less than 360px wide) */
+@media (max-width: 360px) {
+  /* Reduce padding/margins for very small screens */
+  body {
+    padding: 0 0.5rem;
+  }
+
+  /* Further reduce font sizes for headings */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Make buttons easier to tap with larger padding */
+  .btn, .promotion-button, .profile-button, .profile-mail-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Ensure images scale down nicely */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Stack any remaining flex containers vertically */
+  .promotion-grid, .profile-grid, .news-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Reduce table font size and padding */
+  table, thead th, tbody td {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Landscape phones and small tablets (up to 640px) */
+@media (max-width: 640px) {
+  /* Slightly increase font sizes for readability */
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  /* Adjust grid item widths for better fit */
+  .promotion-item, .profile-item, .news-item {
+    max-width: 90%;
+    min-width: auto;
+  }
+}
+
+/* ==========================
+   Products Section
+   ========================== */
+
+/* ==========================
+   Activities Section 
+   ========================== */
+.profile-section {
+  background-color: var(--bg); 
+  padding: 2rem 2rem 3rem 2rem !important; 
+  border-radius: var(--radius); 
+  margin: 0 auto 2rem auto !important; /* Reset top/bottom margins (no body interference) */
+  color: var(--ink); 
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow); 
+  overflow: visible; 
+  position: relative; /* For any absolute positioning inside */
+  box-sizing: border-box; /* Includes padding in section height */
+}
+
+.profile-section h2 {
+  color: var(--brand); 
+  font-size: 1.9rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem !important; /* Override any global h2 margins */
+  text-align: center;
+  font-weight: 600; 
+  line-height: 1.4; /* Ensures airy section title */
+}
+
+/* Activities Grid Layout*/
+.profile-grid {
+  display: flex;
+  flex-direction: row; 
+  gap: 1.5rem;
+  justify-content: center; 
+  align-items: flex-start; 
+  flex-wrap: wrap; /* Allows wrapping if needed, but keeps horizontal on desktop */
+  width: 100%;
+  overflow: visible; /* Ensures no grid-level clipping of text/button */
+  padding: 0 !important; 
+  margin: 0 !important; 
+  box-sizing: border-box;
+}
+
+.profile-item {
+  flex: 1; 
+  min-width: 280px;
+  max-width: 400px; 
+  height: auto; 
+  background-color: var(--bg); /* White background for clean look, matching promotions */
+  border-radius: var(--radius); 
+  padding: 1.5rem !important; /* Uniform padding: Keeps all content (incl. button) inside borders */
+  text-align: center; 
+  transition: var(--transition);
+  box-shadow: var(--shadow); 
+  color: var(--ink); 
+  border: 1px solid var(--line);
+  display: flex; /* Flex column for structured box layout */
+  flex-direction: column; 
+  justify-content: space-between; 
+  gap: 1.5rem !important; 
+  overflow: visible; 
+  box-sizing: border-box; 
+  max-width: 100%; /* Prevents exceeding grid */
+  margin: 0 !important; 
+  padding-bottom: 1.5rem !important; 
+}
+
+.profile-item:hover {
+  transform: translateY(-5px); /* Matches card/promotion hover lift */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Neutral shadow on hover (grayscale for white theme) */
+}
+
+/* Image Holder  */
+.profile-image {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  margin: 0; 
+  border-radius: var(--radius); 
+  overflow: hidden; /* Crops image only (so itdoesn't affect text/button below) */
+  position: relative;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Image stays fixed, doesn't compress */
+  align-self: stretch; 
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Covers without distortion */
+  display: block;
+  max-width: 100%; /* No horizontal overflow */
+  max-height: 100%; /* No vertical spillover from image */
+}
+
+/* Text Area  */
+.profile-text {
+  flex: 1; /* Takes available space (to prevents pushing button out) */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;  
+  align-items: center; /* Centers horizontally */
+  margin: 0; /* Reset globals */
+  overflow: visible; 
+  padding: 1.5rem; 
+  min-height: 0; /* Allows flex shrinking if very short, but grows for long text */
+  width: 100%; 
+  box-sizing: border-box; /* Includes padding in flex space */
+  gap: 0.5rem; 
+}
+
+.profile-text h3 {
+  color: var(--brand); 
+  font-size: 1.2rem; /* Slightly smaller base for less density on long text */
+  margin: 0 !important; /* Reset global h3 margins (prevents pulling toward image/button) */
+  font-weight: 600;
+  line-height: 1.6; 
+  letter-spacing: 0.5px;
+  word-wrap: break-word; /* Breaks long words/titles to fit width */
+  overflow-wrap: break-word;
+  white-space: normal; /* Allows full wrapping (no single-line force) */
+  hyphens: auto; 
+  text-align: center; /* Ensures centered even when wrapped */
+  width: 100%; 
+  padding: 0; 
+}
+
+.profile-text p {
+  font-size: 1rem;
+  line-height: 1.6; 
+  margin: 0 !important; /* Reset global p margins */
+  color: var(--ink); 
+  word-wrap: break-word; 
+  padding: 0;
+}
+
+/* Activity Button*/
+.profile-button {
+  display: block !important; /* Full-width block (overrides any global a display) */
+  background-color: transparent; 
+  color: var(--brand); 
+  padding: 0.8rem 1.5rem !important; /* Fits within padding (no extra vertical push) */
+  border: 2px solid var(--brand); 
+  border-radius: var(--radius); 
+  text-decoration: none !important;
+  font-size: 1.1rem;
+  font-weight: 600; 
+  transition: var(--transition); 
+  width: 100% !important; 
+  box-sizing: border-box !important; 
+  text-align: center;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection on click */
+  max-width: 100%; 
+  margin: 0 !important; /* Reset all margins  */
+  padding-bottom: 0 !important; /* No extra bottom padding on button  */
+  margin-bottom: 0 !important; /* Flush to bottom edge of item  */
+  flex-shrink: 0; /* Button stays full size */
+  overflow: visible; 
+  align-self: stretch; /* Full width in flex (matches item width exactly) */
+  line-height: 1.4; 
+  position: relative; 
+  z-index: 1; 
+}
+
+.profile-button:hover,
+.profile-button:focus {
+  background-color: var(--muted); /* Gray background on hover (matching promotions) */
+  color: #fff; /* White text on gray for contrast */
+  border-color: var(--muted); /* Gray border on hover */
+  outline: none; /* Remove default outline */
+  transform: translateY(-2px); /* Lift for consistency (stays inside box due to relative pos) */
+  text-decoration: none !important; /* No underline on hover */
+}
+
+.profile-button:active {
+  background-color: #eea0df; /* Slightly darker gray on active (matching promotions) */
+  border-color: #eea0df;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px); /* Slight press effect */
+}
+
+/* Responsive (reaffirms overrides on small screens) */
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem !important; /* Scaled extra bottom */
+  }
+  
+  .profile-grid {
+    flex-direction: row; /* Keep side-by-side */
+    justify-content: center;
+    gap: 1rem;
+    align-items: flex-start; /* Natural heights */
+  }
+  
+  .profile-item {
+    min-width: 250px;
+    max-width: 45%;
+    padding: 1.2rem !important;
+    gap: 1.2rem !important;
+    padding-bottom: 1.2rem !important; /* Scaled bottom for button */
+  }
+  
+  .profile-image {
+    height: 160px;
+  }
+  
+  .profile-text {
+    padding: 1.2rem;
+  }
+  
+  .profile-text h3 {
+    font-size: 1.1rem;
+    line-height: 1.5; /* Slightly tighter but airy */
+    letter-spacing: 0.3px;
+  }
+  
+  .profile-button {
+    padding: 0.7rem 1.2rem !important;
+    font-size: 1rem;
+    margin-bottom: 0 !important; /* Reaffirm inside on tablets */
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-grid {
+    flex-direction: column; /* Stack for full visibility on phones */
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .profile-item {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1rem !important;
+    gap: 1rem !important;
+    padding-bottom: 1rem !important; /* Mobile bottom for button */
+  }
+  
+  .profile-image {
+    height: 140px;
+  }
+  
+  .profile-text {
+    padding: 1rem;
+  }
+  
+  .profile-text h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+  }
+  
+  .profile-button {
+    padding: 0.7rem 1rem !important;
+    font-size: 0.95rem;
+    margin-bottom: 0 !important; /* Lock inside on phones */
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Aside styling */
+aside {
+  float: right;
+  width: 30vw;
+  border: 2px solid var(--brand);
+  padding: 1rem;
+  margin-left: 1rem;
+  box-sizing: border-box;
+  background-color: var(--light-bg);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+/* Clear floats after main content */
+main::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Headings */
+h1 {
+  font: 700 2.5rem 'Poppins', sans-serif;
+  color: var(--brand);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-weight: 600;
+  color: var(--brand-strong);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Figure styling */
+figure {
+  margin: 1rem 0;
+  max-width: 60vw;
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.3rem;
+  text-align: center;
+}
+
+/* Table styling */
+table {
+  margin: 1.5rem auto; /* top/bottom margin and auto left/right to center */
+  border-collapse: collapse;
+  width: 90%;           /* or max-width: 600px; to limit width */
+  max-width: 600px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+/* Table header styling */
+thead th {
+  background-color: var(--brand);
+  color: white;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Table body cells */
+tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+/* Hover effect on rows */
+tbody tr:hover td {
+  background-color: var(--brand-light);
+  color: var(--brand);
+}
+
+/* Responsive: full width on small screens */
+@media (max-width: 480px) {
+  table {
+    width: 100%;
+  }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  aside {
+    float: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  figure {
+    max-width: 100%;
+  }
+
+  table {
+    max-width: 100%;
+  }
+}
+
+/* Extra small devices (phones narrower than 360px) */
+@media (max-width: 360px) {
+  /* Reduce padding/margins for very small screens */
+  body {
+    padding: 0 0.5rem;
+  }
+
+  /* Further reduce heading font sizes */
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Make buttons easier to tap */
+  .promotion-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Ensure images scale nicely */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Stack promotion items vertically */
+  .promotion-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Reduce table font size and padding */
+  table, thead th, tbody td {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Landscape phones and small tablets (up to 640px) */
+@media (max-width: 640px) {
+  /* Slightly increase font sizes for readability */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Adjust promotion item widths for better fit */
+  .promotion-item {
+    max-width: 90%;
+    min-width: auto;
+  }
+}
+/* ==========================
+   Promotions Section (reuses profile classes with tweaks)
+   ========================== */
+.profile-section {
+  background-color: var(--bg); 
+  padding: 2rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  color: var(--ink); 
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow); 
+}
+
+.profile-section h2 {
+  color: var(--brand); 
+  font-size: 1.9rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600
+}
+
+/* Promotions Grid Layout */
+.profile-grid {
+  display: flex;
+  flex-direction: row; /* Ensures left-to-right flow */
+  gap: 1.5rem; 
+  justify-content: center;  
+  align-items: stretch; 
+  flex-wrap: wrap; /* Allows wrapping if screen is too narrow, but keeps horizontal on desktop */
+}
+
+.profile-item {
+  flex: 1; 
+  min-width: 250px; /* Minimum width to prevent squishing */
+  max-width: 300px; 
+  background-color: var(--bg); /* White background for clean look */
+  border-radius: var(--radius); 
+  padding: 1.5rem;
+  text-align: center; 
+  transition: var(--transition); 
+  box-shadow: var(--shadow); 
+  color: var(--ink); 
+  border: 1px solid var(--line); /* Subtle border for definition on white, like promotions */
+}
+
+.profile-item:hover {
+  transform: translateY(-5px); /* Matches promotion hover lift */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Neutral shadow on hover (grayscale for white theme) */
+}
+
+/* Image Holder */
+.profile-image {
+  width: 100%;
+  height: 150px; /* Matches promotions height for consistency */
+  margin-bottom: 1rem;
+  border-radius: var(--radius); /* Matches global */
   overflow: hidden; /* Ensure image fits nicely */
 }
 
@@ -358,158 +1277,607 @@ footer {
   display: block;
 }
 
-/* Text Area */
+/* Text Area  */
 .profile-text {
   margin-bottom: 1rem;
 }
 
 .profile-text h3 {
-  color: #E6DDC6;
-  font-size: 1.2rem;
+  color: var(--brand);
+  font-size: 1.2rem; 
   margin: 0 0 0.5rem 0;
   font-weight: 600;
+  line-height: 1.3; 
 }
 
 .profile-text p {
   font-size: 0.95rem;
   line-height: 1.4;
   margin: 0;
-  color: #E6DDC6;
+  color: var(--ink); 
 }
 
+/* Promotion Button  */
 .profile-button {
   display: inline-block;
-  background-color: #355E3B; 
-  color: #E6DDC6; 
+  background-color: transparent; /* Transparent initially for subtle white theme */
+  color: var(--brand); 
   padding: 0.9rem 1.8rem; 
-  border-radius: 8px;
+  border: 2px solid var(--brand);
+  border-radius: var(--radius); 
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600; 
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
   width: 100%; /* Full width */
   box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 3px 6px rgba(53, 94, 59, 0.3); /* Subtle shadow for depth */
   cursor: pointer;
   user-select: none; /* Prevent text selection on click */
 }
 
 .profile-button:hover,
 .profile-button:focus {
-  background-color: #2F4F2F; /* Darker green on hover/focus */
-  color: #E6DDC6;
-  outline: none; /* Remove default outline */
+  background-color: var(--brand-light);
+  color: var(--brand); 
+  border-color: var(--brand-light); 
+  outline: none; 
+  transform: translateY(-2px); 
 }
 
 .profile-button:active {
-  background-color: #27432a; /* Even darker on active press */
-  box-shadow: 0 2px 4px rgba(53, 94, 59, 0.6);
-  transform: translateY(1px); /* Slight press effect */
+  background-color: var(--brand-strong);
+  border-color: var(--brand-strong);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
 }
 
-/* Profile Styling*/
-main {
-  max-width: 1000px;
-  margin: 2rem auto; 
-  padding: 0 1rem;
+/* Responsive adjustments  */
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 1.5rem;
+  }
+  
+  .profile-grid {
+    flex-direction: row; /* Keep row (left-to-right) for 3 items */
+    justify-content: center; /* Center the group */
+    gap: 1rem;
+  }
+  
+  .profile-item {
+    min-width: 250px; /* Encourage side-by-side (e.g., 2-3 per row with wrap) */
+    max-width: 45%; /* Allow wrapping to 2 rows if needed on tablets */
+  }
+  
+  .profile-text h3 {
+    font-size: 1.1rem; /* Smaller titles on mobile */
+  }
 }
 
-/* Profile section wrapper */
+@media (max-width: 480px) {
+  .profile-grid {
+    flex-direction: column; /* Stack top-to-bottom only on very small screens */
+    align-items: center;
+    justify-content: center; /* Center the stack */
+  }
+  
+  .profile-item {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ==========================
+   About Us Section 
+   ========================== */
 .profile-section {
-  background-color: transparent;
+  background-color: var(--bg); 
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: var(--radius); 
   margin-bottom: 2rem;
-  text-align: center; /* Center everything */
-  color: #2F4F2F;
+  color: var(--ink);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow); 
 }
 
-/* Profile image styling */
-.profile-image {
-  width: 200px; 
-  height: auto;
-  max-width: 100%; 
+.profile-section h2 {
+  color: var(--brand); 
+  font-size: 1.9rem;
+  margin-top: 0;
   margin-bottom: 1.5rem;
-  display: block; /* Center the image */
+  text-align: center;
+  font-weight: 600; 
+}
+
+/* Grid Layout  */
+.profile-grid {
+  display: flex;
+  flex-direction: row; 
+  gap: 1.5rem;
+  justify-content: center; 
+  align-items: stretch; 
+  flex-wrap: wrap; /* Wrap if screen narrows, but horizontal on desktop */
+  width: 100%;
+}
+
+.profile-item {
+  flex: 1; 
+  min-width: 250px; 
+  max-width: 300px;
+  perspective: 1000px; /* 3D space for individual flip */
+  position: relative; /* For front/back layering */
+  height: 450px; /* Fixed height for consistent flip  */
+  transform-style: preserve-3d; /*3D depth for card-like flip */
+  transition: box-shadow 0.4s ease; /* Subtle shadow transition on whole item */
+}
+
+.profile-item:hover {
+  box-shadow: 0 8px 25px rgba(125, 27, 90, 0.15); /* Clean pink-tinted shadow lift on hover  */
+}
+
+/* Front side (image + text only; clean vertical stack) */
+.profile-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  background-color: var(--bg); 
+  border-radius: var(--radius);
+  padding: 1.5rem; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: space-between; /* Even distribution, no crowding */
+  box-shadow: var(--shadow); /* Individual card shadow */
+  border: 1px solid var(--line); 
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* smooth flip */
+  transform: rotateY(0deg); 
+}
+
+.profile-image {
+  width: 100%;
+  height: 200px; 
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden; 
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills without distortion */
+  display: block;
+}
+
+.profile-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+.profile-text h3 {
+  color: var(--brand);
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.profile-text p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Back side */
+.profile-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  background-color: var(--bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: var(--shadow); 
+  border: 1px solid var(--line);
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+  transform: rotateY(180deg); /* Starts rotated away */
+  transform-style: preserve-3d;
+}
+
+/* Individual flip triggers  */
+.profile-item:hover .profile-front {
+  transform: rotateY(180deg); /* Flip this card's front away */
+}
+
+.profile-item:hover .profile-back {
+  transform: rotateY(0deg) scale(1.02); /* Flip back in */
+}
+
+/* Quote on back  */
+.profile-quote {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--brand);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 90%;
+  padding: 1rem;
+  border-left: 4px solid var(--brand-light); 
+  background: rgba(255, 192, 203, 0.05); 
+  border-radius: 5px;
+}
+
+/* Button on back */
+.profile-button {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--brand);
+  padding: 0.9rem 1.8rem;
+  border: 2px solid var(--brand);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  width: 100%; 
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  margin-top: auto; 
+  pointer-events: auto; /* Ensures clickable during/after flip */
+}
+
+.profile-button:hover,
+.profile-button:focus {
+  background-color: var(--brand-light);
+  color: var(--brand);
+  border-color: var(--brand-light);
+  outline: none;
+  transform: translateY(-2px); 
+
+.profile-button:active {
+  background-color: var(--brand-strong);
+  border-color: var(--brand-strong);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+
+/* Responsive  */
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 1.5rem;
+  }
+  
+  .profile-grid {
+    flex-direction: row; /* Keep left-to-right for 3 cards */
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .profile-item {
+    min-width: 250px;
+    max-width: 45%; /* Allows clean wrap to 2 rows on tablets */
+    height: 420px;
+  }
+  
+  .profile-image {
+    height: 160px; /* Slightly smaller but still large */
+  }
+  
+  .profile-quote {
+    font-size: 1.1rem;
+  }
+  
+  .profile-text h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-grid {
+    flex-direction: column; /* Clean vertical stack on phones */
+    align-items: center;
+  }
+  
+  .profile-item {
+    min-width: 100%;
+    max-width: 100%;
+    height: 400px;
+  }
+  
+  .profile-image {
+    height: 140px;
+  }
+  
+  .profile-quote {
+    font-size: 1rem;
+  }
+}
+/* ==========================
+   Single Profile Page 
+   ========================== */
+
+main {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: space-around; 
+  min-height: 100vh; 
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%; 
+}
+
+.profile-section {
+  background-color: var(--bg); 
+  padding: 2rem;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+  max-width: 1000px; 
+  width: 100%;
+  box-shadow: var(--shadow); 
+  color: var(--ink); 
+  display: flex !important; /* Force flex */
+  flex-direction: column;
+  align-items: center !important; /* Force horizontal centering of children */
+  justify-content: center;
+  text-align: center; 
+  transition: var(--transition); 
+  flex: 0 1 auto; 
+  margin-left: auto !important; 
+  margin-right: auto !important;
+}
+
+.profile-section:hover {
+  box-shadow: 0 8px 25px rgba(125, 27, 90, 0.15); 
+}
+
+/* Profile Image (larger, centered, rounded) */
+.profile-image {
+  display: flex !important; 
+  width: 300px; 
+  height: 300px;
+  border-radius: var(--radius); 
+  overflow: hidden;
+  margin: 0 auto 1.5rem auto !important; 
+  box-shadow: var(--shadow); 
+  transition: var(--transition);
+  align-items: center !important; /* Center img vertically inside div */
+  justify-content: center !important; /* Center img horizontally inside div */
+
+}
+
+.profile-image:hover {
+  transform: scale(1.02); /* Slight zoom on hover for interactivity */
+  box-shadow: 0 6px 20px rgba(125, 27, 90, 0.1); /* Pink-tinted shadow on hover */
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Covers without distortion*/
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Profile info headings */
+/* Profile Info Headings */
+.profile-info {
+  margin-bottom: 2rem;
+  width: 100%; 
+}
+
 .profile-info h1 {
-  color: #355E3B; /* Site green */
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  font-family: 'Times New Roman', Times, serif;
+  color: var(--brand);
+  font-size: 2.2rem; 
+  margin: 0 0 0.5rem 0;
+  font-weight: 700; 
+  line-height: 1.2;
 }
 
 .profile-info h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  color: var(--ink); /* Dark text for ID */
+  font-size: 1.4rem;
+  margin: 0 0 0.25rem 0;
   font-weight: 600;
+  line-height: 1.3;
 }
 
 .profile-info h3 {
-  color: #355E3B;
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
+  color: var(--brand); /* Pink for course */
+  font-size: 1.2rem;
+  margin: 0;
   font-weight: 500;
+  line-height: 1.3;
+  opacity: 0.9; 
 }
 
-/* Profile table styling */
+/* Profile Table*/
 .profile-table {
-  width: 100%;
+  width: 100%; 
   max-width: 600px;
-  margin: 0 auto; /* Center the table */
-  border-collapse: collapse;
-  border: 2px solid #355E3B; 
-  border-radius: 8px;
-  overflow: hidden; /* Round corners on table */
-  font-size: 1.1rem;
-  color: #2F4F2F; /* Match body text color */
+  border-collapse: collapse; 
+  margin-bottom: 2rem; 
+  background-color: var(--bg); 
+  border-radius: var(--radius);
+  overflow: hidden; 
+  box-shadow: var(--shadow);
+  transition: var(--transition); 
 }
 
-.profile-table th,
-.profile-table td {
-  padding: 1rem; 
-  text-align: left;
-  border-bottom: 1px solid #E6DDC6; /* separator line in cream color */
+.profile-table:hover {
+  box-shadow: 0 4px 15px rgba(125, 27, 90, 0.1); /* Pink lift on hover */
 }
 
 .profile-table th {
-  background-color: #355E3B; 
-  color: #E6DDC6; 
-  font-weight: bold;
-  text-align: left;
-}
-
-.profile-table tr:hover {
-  background-color: #E6DDC6;
-  transition: background-color 0.3s ease;
+  background-color: var(--brand); 
+  color: white; 
+  padding: 1rem; 
+  text-align: left; 
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--brand-light); /* Light pink bottom border */
 }
 
 .profile-table td {
-  background-color: white; 
-}
-
-.profile-mail-button {
-  display: block;         
-  margin: 1.5rem auto 0;   
-  padding: 0.8rem 1.8rem;
-  background-color: #355E3B;
-  color: #E6DDC6;
+  padding: 1rem; 
+  border-bottom: 1px solid var(--line); /* Subtle line separator */
   font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  width: max-content;     
+  color: var(--ink);
+  background-color: rgba(255, 255, 255, 0.8); 
+  transition: background-color 0.3s ease; 
 }
 
-.profile-mail-button:hover {
-  background-color: #2F4F2F; /* Darker green on hover */
-  color: #E6DDC6;
+.profile-table tr:hover td {
+  background-color: var(--brand-light); 
+  color: var(--brand); 
 }
+
+/* Email Button */
+.profile-mail-button {
+  display: block;
+  background-color: transparent;
+  color: var(--brand); 
+  padding: 1rem 2rem; 
+  border: 2px solid var(--brand);
+  border-radius: var(--radius); 
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+  margin: 2rem auto 0; 
+  flex: 0 0 auto; /* Doesn't grow/shrink in flex */
+  max-width: 250px; 
+}
+
+.profile-mail-button:hover,
+.profile-mail-button:focus {
+  background-color: var(--brand-light);
+  color: var(--brand); 
+  border-color: var(--brand-light); 
+  outline: none; /* Remove default outline */
+  transform: translateY(-2px); /* Subtle lift, like other buttons */
+  box-shadow: 0 4px 12px rgba(125, 27, 90, 0.15); /* Pink shadow on hover */
+}
+
+.profile-mail-button:active {
+  background-color: var(--brand); /* Solid pink on click */
+  color: white;
+  border-color: var(--brand);
+  transform: translateY(0); /* Press effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive (button stays centered; full-width on mobile) */
+@media (max-width: 768px) {
+  main {
+    padding: 0.5rem; /* Tighter on tablets */
+    justify-content: flex-start; /* Section at top on smaller screens, button below */
+  }
+  
+  .profile-section {
+    padding: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .profile-image {
+    width: 250px; /* Smaller on tablets */
+    height: 250px;
+  }
+  
+  .profile-info h1 {
+    font-size: 1.9rem;
+  }
+  
+  .profile-info h2 {
+    font-size: 1.2rem;
+  }
+  
+  .profile-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .profile-table {
+    max-width: 100%; /* Full width on mobile */
+  }
+  
+  .profile-table th,
+  .profile-table td {
+    padding: 0.8rem; /* Tighter padding */
+    font-size: 0.95rem;
+  }
+  
+  .profile-mail-button {
+    padding: 0.9rem 1.5rem; /* Slightly smaller */
+    width: 100%; /* Full width on mobile for easy tap (still centered via flex) */
+    max-width: none; /* Overrides desktop max */
+    margin: 1.5rem auto 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image {
+    width: 200px; /* Even smaller on phones */
+    height: 200px;
+  }
+  
+  .profile-info h1 {
+    font-size: 1.7rem;
+  }
+  
+  .profile-table th {
+    text-align: center; /* Center headers on very small screens */
+  }
+  
+  .profile-table td {
+    text-align: center;
+  }
+  
+  main {
+    min-height: 100vh; /* Keeps full height on phones */
+    padding: 0.5rem;
+  }
+}
+
+}
+
+/* ==========================
+   Enquiry Section
+   ========================== */
+
+
+/* ==========================
+   Membership Section
+   ========================== */
+
+/* ==========================
+   Enhancement Section
+   ========================== */
+
+/* ==========================
+   Acknowledgment Section
+   ========================== */
