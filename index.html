@@ -1,177 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="description" content="Index"/>
-  <meta name="keywords" content="HTML,CSS"/>
-  <meta name="author" content="Christian Deniro,Hassan,Ali"/>
-  <title>Root Flowers</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root Flower</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <!-- Logo and company name -->
-    <div class="logo-container">
-      <h1>ROOT FLOWER</h1>
-      <img src="Photos/Logo.jpg" alt="Root Flower Logo"/>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header">
+    <!-- Left: Logo + Brand -->
+    <div class="branding">
+      <img class="logo" src="Photos/Logo.jpg" alt="Root Flower logo">
+      <span class="brand-name">Root Flower</span>
     </div>
-    <!-- Navigation menu -->
-    <nav>
-      <a href="index.html">Home</a>
 
-      <div class="dropdown-container">
-        <a href="#products.html" class="nav-link">Products</a>
-        <ul class="dropdown">
-          <li><a href="hand-bouquet.html">Hand Bouquet</a></li>
-          <li><a href="cny-decoration.html">CNY Decoration</a></li>
-          <li><a href="grand-opening.html">Grand Opening</a></li>
-          <li><a href="graduation.html">Graduation</a></li>
-        </ul>
-      </div>
+    <!-- Center: Navigation -->
+    <nav aria-label="Main navigation">
+      <ul class="menu">
+        <li><a href="index.html" class="active">Home</a></li>
 
-      <div class="dropdown-container">
-        <a href="Activities.html" class="nav-link">Activities</a>
-        <ul class="dropdown">
-          <li><a href="Workshop.html">Workshop</a></li>
-          <li><a href="Promotion.html">Promotion</a></li>
-        </ul>
-      </div>
+        <!-- Products (icon + arrow, dropdown) -->
+        <li class="has-sub">
+          <a href="products.html">
+            <i class="fa-solid fa-heart"></i> Products <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="submenu">
+            <li><a href="product1.html">Hand bouquet</a></li>
+            <li><a href="product2.html">CNY decoration</a></li>
+            <li><a href="product3.html">Grand Opening</a></li>
+            <li><a href="product4.html">Graduation</a></li>
+          </ul>
+        </li>
 
-      <a href="about.html" class="nav-link">About Us</a>
+        <!-- Activities (icon + arrow, dropdown) -->
+        <li class="has-sub">
+          <a href="Activities.html">
+            <i class="fa-solid fa-heart"></i> Activities <i class="fa-solid fa-chevron-down"></i>
+          </a>
+          <ul class="submenu">
+            <li><a href="workshop.html">Workshop</a></li>
+            <li><a href="promotion.html">Promotion</a></li>
+          </ul>
+        </li>
 
-      <a href="enquiry.html">Enquiry</a>
-      
-      <a href="membership.html">Membership</a>
+        <!-- Single links -->
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="registration.html">Membership</a></li>
+      </ul>
     </nav>
-</header>
 
+    <!-- Right: Login icon -->
+    <div class="header-icons">
+      <a class="icon user" href="login.html" aria-label="Login">
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </div>
+  </header>
+  <!-- ====== END HEADER ====== -->
+
+
+<!-- ====== MAIN CONTENT ====== -->
 <main>
+  <!-- Hero Banner Section (static: single image with overlay text + button; no carousel/dots/slides) -->
   <div class="slideshow-container">
-    <!-- Radio inputs for slide control (hidden) -->
-    <input type="radio" id="slide1" name="carousel" class="slide-input" checked>
-    <input type="radio" id="slide2" name="carousel" class="slide-input">
-    <input type="radio" id="slide3" name="carousel" class="slide-input">
-
-    <!-- Full-width images -->
-    <div class="carousel-inner">
-      <div class="mySlides">
-        <img src="Photos/main_welcome.png" alt="Welcome Image for Root Flowers">
-      </div>
-
-      <div class="mySlides">
-        <img src="Photos/second_page.png" alt="Photos of beautiful flowers made by Root Flowers">
-      </div>
-
-      <div class="mySlides">
-        <img src="Photos/third_page.png" alt="Workshop Promotion Image">
-      </div>
+    <!-- Static Hero Image (fills the container) -->
+    <div class="hero-image">
+      <img src="Photos/page1_2.jpg" alt="Welcome Image for Root Flowers" loading="lazy">
     </div>
 
-    <!-- Clickable dots (positioned inside/at bottom of image for navigation) -->
-    <div class="carousel-indicators">
-      <label for="slide1" class="dot"></label>
-      <label for="slide2" class="dot"></label>
-      <label for="slide3" class="dot"></label>
+    <!-- Overlay: Hero text + button (centered on image) -->
+    <div class="slideshow-overlay">
+      <h2 class="hero-text">Special Deals This Season</h2>
+      <p class="hero-subtext">Celebrate love, life, and joy with Root Flowers.</p>
+      <a href="products.html" class="btn btn-primary">Shop Now</a>
     </div>
   </div>
+
   <br>
 
-      <!-- Introduction to the company Section (Larger image and text) -->
-      <section class="welcome-section" aria-label="Introduction to Root Flowers">
-        <img src="Logo.jpeg" alt="Welcome to Root Flowers Image" class="welcome-image">
-        <div class="welcome-text">
-          <h2>Welcome to Root Flowers</h2>
-          <p>At Root Flowers, we love turning moments into memories with beautiful blooms. From heartfelt hand bouquets, festive CNY decorations, vibrant grand opening flowers, to joyful graduation arrangements—we’ve got the perfect flowers for every occasion.</p>
-        </div>
-      </section>
 
-    <!-- Latest Promotions Section  -->
-    <section class="profile-section">
-      <h2>Latest Promotions</h2>
+<!-- Introduction to the company Section (Larger image and text) -->
+<section class="welcome-section" aria-label="Introduction to Root Flowers">
+  <img src="Logo.jpeg" alt="Welcome to Root Flowers Image" class="welcome-image">
+  <div class="welcome-text">
+    <h2>Welcome to Root Flowers</h2>
+    <p>At Root Flowers, we love turning moments into memories with beautiful blooms. From heartfelt hand bouquets, festive CNY decorations, vibrant grand opening flowers, to joyful graduation arrangements—we’ve got the perfect flowers for every occasion.</p>
+  </div>
+</section>
 
-      <div class="profile-grid">
-        <div class="profile-item">
-          <div class="profile-image">
-            <img src="Photos/promotion1.png" alt="Latest Promotion Image">
-          </div>
-          <div class="profile-text">
-            <h3>Cry Baby and Haeci Bouquet Giveaway </h3>
-          </div>
-          <a href="promotion.html" class="profile-button">Click Here To Go</a>
-        </div>
+<!-- Latest Promotions Section -->
+<section class="latest-promotion">
+  <h2>Latest Promotions</h2>
 
+  <div class="promotion-grid">
+    <div class="promotion-item">
+      <div class="promotion-image">
+        <img src="Photos/promotion1.png" alt="Latest Promotion Image">
+      </div>
+      <div class="promotion-text">
+        <h3>Cry Baby and Haeci Bouquet Giveaway</h3>
+      </div>
+      <a href="promotion.html" class="promotion-button">Go to Promotion</a>
+    </div>
 
-              <div class="profile-grid">
-        <div class="profile-item">
-          <div class="profile-image">
-            <img src="Photos/promotion2.png" alt="Latest Promotion Image">
-          </div>
-          <div class="profile-text">
-            <h3>Latest Promotion </h3>
-          </div>
-          <a href="promotion.html" class="profile-button">Click Here To Go</a>
-        </div>
+    <div class="promotion-item">
+      <div class="promotion-image">
+        <img src="Photos/promotion2.png" alt="Latest Promotion Image">
+      </div>
+      <div class="promotion-text">
+        <h3>Our Flower Booth is Open! Come Visit Us Here</h3>
+      </div>
+      <a href="promotion.html" class="promotion-button">Go to Promotion</a>
+    </div>
 
-              <div class="profile-grid">
-        <div class="profile-item">
-          <div class="profile-image">
-            <img src="Photos/promotion3.png" alt="Latest Promotion Image">
-          </div>
-          <div class="profile-text">
-            <h3>Latest Promotion </h3>
-          </div>
-          <a href="promotion.html" class="profile-button">Click Here To Go</a>
-        </div>
-    </section>
+    <div class="promotion-item">
+      <div class="promotion-image">
+        <img src="Photos/promotion3.png" alt="Latest Promotion Image">
+      </div>
+      <div class="promotion-text">
+        <h3>Christmas Workshop Class Slot Giveaway</h3>
+      </div>
+      <a href="promotion.html" class="promotion-button">Go to Promotion</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Latest News Section  -->
-    <section class="profile-section">
-      <h2>Latest News</h2>
+<!-- Latest News Section -->
+<section class="latest-news">
+  <h2>Latest News</h2>
 
-      <div class="profile-grid">
-        <div class="profile-item">
-          <div class="profile-image">
-            <img src="Photos/news1.png" alt="Latest News Image">
-          </div>
-          <div class="profile-text">
-            <h3>New Happy Valentines Day Bundle!</h3>
-          </div>
-        </div>
+  <div class="news-grid">
+    <div class="news-item">
+      <div class="news-image">
+        <img src="Photos/news1.png" alt="Latest News Image">
+      </div>
+      <div class="news-text">
+        <h3>New Happy Valentines Day Bundle!</h3>
+      </div>
+    </div>
 
-              <div class="profile-grid">
-        <div class="profile-item">
-          <div class="profile-image">
-            <img src="Photos/news2.png" alt="Latest News Image">
-          </div>
-          <div class="profile-text">
-            <h3>New Happy Valentines Day Bundle!</h3>
-          </div>
-        </div>
+    <div class="news-item">
+      <div class="news-image">
+        <img src="Photos/news2.png" alt="Latest News Image">
+      </div>
+      <div class="news-text">
+        <h3>New CNY (Chinese New Year) Bundle!</h3>
+      </div>
+    </div>
 
-              <div class="profile-grid">
-        <div class="profile-item">
-          <div class="profile-image">
-            <img src="Photos/news3.png" alt="Latest News Image">
-          </div>
-          <div class="profile-text">
-            <h3>New Happy Graduation Day Bundle!</h3>
-          </div>
-        </div>
-      
-    </section>
+    <div class="news-item">
+      <div class="news-image">
+        <img src="Photos/news3.png" alt="Latest News Image">
+      </div>
+      <div class="news-text">
+        <h3>New Happy Graduation Day Bundle!</h3>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
 
 
-  <!-- Footer -->
-  <footer>
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer">
     <div class="footer-content">
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="activities.html">Activities</a>
-      <a href="about.html">About Us</a>
-      <a href="Enquiry.html">Enquiry</a>
-      <a href="membership.html">Membership</a>
-      <a href="enhancement.html">Enhancements</a>
-      <a href="Acknowledgements.html">Acknowledgements</a>
+      <p>&copy; 2025 Root Flower — All rights reserved.</p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-menu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </nav>
     </div>
   </footer>
 
