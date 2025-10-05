@@ -264,7 +264,6 @@ main {
      margin-top: 0 ;
      position: relative;  /* Allows absolute positioning of slideshow */
 }
-
 /* ==========================
    Slideshow / Hero Banner
    ========================== */
@@ -273,8 +272,8 @@ main {
   width: 100vw;                   
   height: 25rem;                   
   margin: 0 0 2rem 0 !important;   
-  margin-left: -50vw !important;   /* Negative margin: Pulls left edge to screen left (centers the full-width) */
-  margin-right: -50vw !important;  /* Negative margin: Pulls right edge to screen right (no empty space) */
+  margin-left: calc(-50vw + 50%) !important;   /* More robust: Accounts for parent's centering offset */
+  margin-right: calc(-50vw + 50%) !important;  /* Ensures perfect full-width pull without overflow */
   padding: 0 !important;          
   border-radius: 0;               
   overflow: hidden;              
@@ -282,14 +281,20 @@ main {
   position: relative;              /* For overlay positioning */
   display: block !important;    
   box-sizing: border-box;         
+  left: 0;                         /* Explicitly anchor to left edge */
+  transform: none;                 /* Avoid any conflicting transforms */
 }
-/*hero image */
+
+/* Hero image */
 .hero-image {
   width: 100%;
   height: 100%;
   position: absolute;              /* Absolute to fill precisely (prevents flow issues) */
   top: 0;
   left: 0;
+  right: 0;                        /* Explicitly stretch to right edge */
+  margin: 0;                       /* No margins to interfere */
+  padding: 0;                      /* No padding to shrink effective width */
 }
 
 .hero-image img {
@@ -298,8 +303,8 @@ main {
   object-fit: cover;               
   object-position: center center;  /* Explicitly centers image content (no left lean) */
   display: block;                  
-  min-width: 100vw;                /* Ensures it spans full viewport if needed */
-  min-height: 100%;                /* Full height coverage */
+  /* Removed min-width: 100vw; - This was likely causing overflow or misalignment since container is already 100vw */
+  min-height: 100%;                /* Full height coverage only */
   filter: brightness(70%);         /* Darkens for overlay readability */
 }
 
@@ -313,6 +318,9 @@ main {
   text-align: center;
   pointer-events: auto;              /* Ensures button is clickable over image */
   max-width: 80%;                    /* Prevent overflow on smaller screens */
+  width: auto;                       /* Allow natural width, but cap at 80% */
+  padding: 0 1rem;                   /* Minimal side padding to avoid edge clipping on mobile */
+  box-sizing: border-box;
 }
 
 /* Hero Text (h2) */
@@ -324,6 +332,8 @@ main {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Stronger shadow for readability on image */
   line-height: 1.2;                  
   font-family: 'Poppins', sans-serif;
+  width: 100%;                       /* Ensure text doesn't overflow overlay */
+  word-wrap: break-word;             /* Handle long words */
 }
 
 /* Hero Subtext (p) */
@@ -336,6 +346,8 @@ main {
   line-height: 1.4;             
   opacity: 0.9;                     
   font-family: 'Poppins', sans-serif;
+  width: 100%;                       /* Ensure text doesn't overflow overlay */
+  word-wrap: break-word;
 }
 
 /*Button */
@@ -383,6 +395,7 @@ main {
   
   .slideshow-overlay {
     max-width: 90%;                  /* More room on mobile */
+    padding: 0 0.5rem;               /* Tighter padding on sides */
   }
   
   .slideshow-container {
@@ -402,18 +415,9 @@ main {
   .slideshow-container {
     height: 18rem;                   /* Even shorter on tiny screens */
   }
-}
-@media (max-width: 480px) {
-  .hero-text {
-    font-size: 1.8rem;               /* Even smaller on very small screens */
-  }
   
-  .hero-subtext {
-    font-size: 0.95rem;
-  }
-  
-  .slideshow-container {
-    height: 18rem;                   /* Even shorter on tiny screens */
+  .slideshow-overlay {
+    padding: 0 0.25rem;              /* Minimal padding on tiny screens */
   }
 }
 
@@ -779,6 +783,132 @@ Latest Promotions Section
 /* ==========================
    Activities Section 
    ========================== */
+/* ==========================
+   Activities Page Centering
+   ========================== */
+
+/* Center all sections in activities page */
+main section {
+  text-align: center;                /* Centers text content (p, h2) */
+  max-width: 800px;                  /* Slightly narrower than main for focused centering */
+  margin: 0 auto 2rem auto;          /* Auto margins for horizontal centering, bottom spacing */
+  padding: 0 1rem;                   /* Minimal side padding to avoid edge clipping */
+}
+
+/* Center h1 (page title) explicitly */
+main h1 {
+  text-align: center;
+  margin-bottom: 2rem;               /* Extra space below title */
+}
+
+/* Center figure (image + caption) */
+main figure {
+  display: block;
+  margin: 1.5rem auto;               /* Centers the figure block */
+  max-width: 100%;                   /* Full width on small screens, but centered */
+  text-align: center;                /* Ensures figcaption is centered */
+}
+
+main figure img {
+  display: block;
+  margin: 0 auto;                    /* Centers the image inside figure */
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);      /* Optional: Add subtle rounding for consistency */
+}
+
+/* Center ordered list (<ol>) - block-centered, items left-aligned */
+main ol {
+  display: inline-block;             /* Centers the list as a block */
+  text-align: left;                  /* Keeps list items left-aligned for readability */
+  max-width: 600px;                  /* Limits width to prevent over-stretching */
+  margin: 1.5rem auto;               /* Centers with vertical spacing */
+  padding-left: 1.5rem;              /* Standard list indent */
+}
+
+main ol li {
+  margin-bottom: 0.5rem;             /* Spacing between list items */
+  line-height: 1.6;                  /* Improves readability */
+}
+
+/* Center definition list (<dl>) - similar to ol */
+main dl {
+  display: inline-block;             /* Centers the list as a block */
+  text-align: left;                  /* Keeps dt/dd left-aligned */
+  max-width: 600px;                  /* Limits width */
+  margin: 1.5rem auto;               /* Centers with vertical spacing */
+}
+
+main dt {
+  font-weight: 600;                  /* Bold terms */
+  color: var(--brand);               /* Brand color for emphasis */
+  margin-top: 1rem;                  /* Space before each term */
+  margin-bottom: 0.25rem;
+}
+
+main dd {
+  margin-bottom: 1rem;               /* Space after each description */
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* Promotion grid (already centered, but enhance spacing) */
+.promotion-grid {
+  justify-content: center;           /* Reaffirm centering */
+  gap: 2rem;                         /* Slightly more space between items for balance */
+  margin: 2rem auto;                 /* Centers the grid with top/bottom margin */
+  max-width: 1000px;                 /* Matches main width */
+}
+
+/* Table (already centered, but add subtle enhancements) */
+main table {
+  margin: 2rem auto;                 /* Extra top/bottom for better flow */
+  width: 90%;
+  max-width: 600px;
+}
+
+/* Responsive: Ensure centering works on smaller screens */
+@media (max-width: 768px) {
+  main section {
+    max-width: 100%;                 /* Full width on tablets/mobile */
+    padding: 0 0.5rem;               /* Tighter sides */
+  }
+
+  main ol,
+  main dl {
+    max-width: 100%;                 /* Full width on small screens */
+    padding-left: 1rem;              /* Reduced indent */
+  }
+
+  main figure {
+    max-width: 100%;
+  }
+
+  .promotion-grid {
+    flex-direction: column;          /* Stack items vertically on mobile (easier to read) */
+    align-items: center;             /* Center items in column */
+    gap: 1.5rem;
+  }
+
+  main table {
+    width: 100%;                     /* Full width on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  main section {
+    padding: 0 0.25rem;
+  }
+
+  main h1 {
+    font-size: 2rem;                 /* Slightly smaller title on phones */
+  }
+
+  main h2 {
+    font-size: 1.5rem;
+  }
+}
+
 .profile-section {
   background-color: var(--bg); 
   padding: 2rem 2rem 3rem 2rem !important; 
@@ -1040,16 +1170,16 @@ Latest Promotions Section
 
 /* Aside styling */
 aside {
-  float: right;
-  width: 30vw;
+  width: 100%;                   
   border: 2px solid var(--brand);
   padding: 1rem;
-  margin-left: 1rem;
+  margin: 1rem 0;
   box-sizing: border-box;
   background-color: var(--light-bg);
   border-radius: var(--radius);
   color: var(--ink);
   font-size: 1rem;
+  text-align: center;              
 }
 
 /* Clear floats after main content */
