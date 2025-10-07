@@ -61,29 +61,30 @@
   <main>
     <div class="form-box">
       <h2>Join Our Membership Program</h2>
-      <p class="subtitle">Unlock exclusive benefits, events, and offers by becoming a valued member of our community.</p>
+      <p class="subtitle">Unlock Exclusive Benefits, Events, And Offers By Becoming A Valued Member Of Our Community.</p>
 
-      <form onsubmit="event.preventDefault(); alert('This is a dummy membership form.');">
+      <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+        
         <label for="fname">First Name:</label>
-        <input type="text" id="fname" name="fname" maxlength="25" pattern="[A-Za-z]+" required>
+        <input type="text" id="fname" name="First Name" maxlength="25" pattern="[A-Za-z]+" required>
 
         <label for="lname">Last Name:</label>
-        <input type="text" id="lname" name="lname" maxlength="25" pattern="[A-Za-z]+" required>
+        <input type="text" id="lname" name="Last Name" maxlength="25" pattern="[A-Za-z]+" required>
 
         <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="Email" required>
 
         <fieldset>
           <legend>Address Details</legend>
 
           <label for="street">Street Address:</label>
-          <input type="text" id="street" name="street" maxlength="40" required>
+          <input type="text" id="street" name="Street Address" maxlength="40" required>
 
           <label for="city">City/Town:</label>
-          <input type="text" id="city" name="city" maxlength="20" required>
+          <input type="text" id="city" name="City" maxlength="20" required>
 
           <label for="state">State:</label>
-          <select id="state" name="state" required>
+          <select id="state" name="State" required>
             <option value="">-- Select State --</option>
             <option value="Johor">Johor</option>
             <option value="Penang">Penang</option>
@@ -95,20 +96,20 @@
           </select>
 
           <label for="postcode">Postcode:</label>
-          <input type="text" id="postcode" name="postcode" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 93350" required>
+          <input type="text" id="postcode" name="Postcode" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 93350" required>
         </fieldset>
 
         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" maxlength="10" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required>
+        <input type="tel" id="phone" name="Phone" maxlength="10" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required>
 
         <label for="date">Membership Start Date:</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="Start Date" required>
 
         <label for="participants">Number of Members:</label>
-        <input type="text" id="participants" name="participants" maxlength="2" pattern="[A-Za-z0-9]+" required>
+        <input type="text" id="participants" name="Number of Members" maxlength="2" pattern="[A-Za-z0-9]+" required>
 
         <label for="comments">Comments:</label>
-        <textarea id="comments" name="comments" rows="5" cols="30" required></textarea>
+        <textarea id="comments" name="Comments" rows="5" cols="30" /textarea>
 
         <button type="submit" class="submit-btn">Submit Membership</button>
         <button type="reset" class="reset-btn">Reset Form</button>
@@ -133,3 +134,4 @@
 
 </body>
 </html>
+
