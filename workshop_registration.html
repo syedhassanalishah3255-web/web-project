@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Workshop Registration Page"/>
+  <meta name="keywords" content="HTML,CSS"/>
+  <meta name="author" content="Ali Murtaza Shah SYED"/>
+
+  <title>Workshop Registration | Root Flower</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="workshop.css" />
+</head>
+<body>
+
+  <!-- Floating background accent -->
+  <div class="floating-accent"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="branding">
+      <img class="logo" src="logo.jpg" alt="Root Flower logo" />
+      <span class="brand-name">Root Flower</span>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="has-sub">
+          <a href="products.html"><i class="fa-solid fa-heart"></i> Products <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="product1.html">Hand bouquet</a></li>
+            <li><a href="product2.html">CNY decoration</a></li>
+            <li><a href="product3.html">Grand Opening</a></li>
+            <li><a href="product4.html">Graduation</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="Activities.html"><i class="fa-solid fa-heart"></i> Activities <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="workshop.html">Workshop</a></li>
+            <li><a href="promotion.html">Promotion</a></li>
+          </ul>
+        </li>
+        <li><a href="register.html" class="active">Workshop Registration</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="registration.html">Membership</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a class="icon user" href="login.html" aria-label="Login">
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== FORM ===== -->
+  <main>
+    <div class="form-box">
+      <h2><i class="fa-solid fa-seedling"></i> Register for Our Workshop</h2>
+      <p class="subtitle">✨ Fill Out The Form Below To Secure Your Spot In Our Exciting And Creative Workshops ✨</p>
+
+      <!-- ✅ Fixed: One single form with working mailto action -->
+      <form action="mailto:youraddress@gmail.com" method="post" enctype="text/plain">
+        
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="First Name" maxlength="25" pattern="[A-Za-z]+" required>
+
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="Last Name" maxlength="25" pattern="[A-Za-z]+" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="Email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="Phone" maxlength="10" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required>
+
+        <fieldset>
+          <legend>Workshop Preferences</legend>
+
+          <label for="workshop-type">Select Workshop:</label>
+          <select id="workshop-type" name="Workshop Type" required>
+            <option value="">-- Choose a Workshop --</option>
+            <option value="Flower Arrangement">Flower Arrangement</option>
+            <option value="Bouquet Design">Bouquet Design</option>
+            <option value="Seasonal Decoration">Seasonal Decoration</option>
+            <option value="Wedding Special">Wedding Special</option>
+          </select>
+
+          <p style="margin-top:15px; font-weight:bold; color:var(--brand);">Preferred Session:</p>
+          <label><input type="radio" name="Preferred Session" value="Morning" required> Morning (9AM - 12PM)</label>
+          <label><input type="radio" name="Preferred Session" value="Afternoon"> Afternoon (1PM - 4PM)</label>
+          <label><input type="radio" name="Preferred Session" value="Evening"> Evening (5PM - 8PM)</label>
+
+          <p style="margin-top:20px; font-weight:bold; color:var(--brand);">Additional Options:</p>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="Extras" value="Include Materials"> Include Materials</label>
+            <label><input type="checkbox" name="Extras" value="Receive Certificate"> Receive Certificate</label>
+            <label><input type="checkbox" name="Extras" value="Include Refreshments"> Include Refreshments</label>
+            <label><input type="checkbox" name="Extras" value="Special Gift Pack"> Special Gift Pack</label>
+          </div>
+        </fieldset>
+
+        <label for="date">Preferred Start Date:</label>
+        <input type="date" id="date" name="Preferred Date" required>
+
+        <label for="participants">Number of Participants:</label>
+        <input type="number" id="participants" name="Participants" min="1" max="50" required>
+
+        <label for="comments">Additional Comments:</label>
+        <textarea id="comments" name="Comments" rows="5" cols="30"></textarea>
+
+        <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit Registration</button>
+        <button type="reset" class="reset-btn"><i class="fa-solid fa-rotate"></i> Reset Form</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Root Flower — All Rights Reserved.</p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-menu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
