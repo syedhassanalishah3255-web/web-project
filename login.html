@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Login Page"/>
+  <meta name="keywords" content="HTML,CSS"/>
+  <meta name="author" content="Ali Murtaza Shah SYED"/>
+  <title>User Login | Root Flower</title>
+  
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- External CSS -->
+
+  <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+
+ <header class="site-header">
+    <div class="branding">
+      <img class="logo" src="logo.jpg" alt="Root Flower logo" />
+      <span class="brand-name">Root Flower</span>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li class="has-sub">
+          <a href="products.html"><i class="fa-solid fa-heart"></i> Products <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="product1.html">Hand bouquet</a></li>
+            <li><a href="product2.html">CNY decoration</a></li>
+            <li><a href="product3.html">Grand Opening</a></li>
+            <li><a href="product4.html">Graduation</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="Activities.html"><i class="fa-solid fa-heart"></i> Activities <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="workshop.html">Workshop</a></li>
+            <li><a href="promotion.html">Promotion</a></li>
+          </ul>
+        </li>
+        <li><a href="register.html">Workshop Registration</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="registration.html">Membership</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a class="icon user" href="login.html" aria-label="Login">
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- ====== END HEADER ====== -->
+
+  <!-- ===== LOGIN FORM ===== -->
+
+  <div class="container">
+    <div class="login-box">
+      <h2>Access Your Account</h2>
+      <p>Welcome back! Sign In To Manage Your Profile, Check Your Memberships, And Explore Exclusive Content.</p>
+
+      <form onsubmit="event.preventDefault(); alert('This Is A Dummy Login Form.');">
+
+        <label for="login">Username :</label>
+        <input type="text" id="login" name="login" maxlength="10" pattern="[A-Za-z]+" placeholder="Enter Username" required>
+
+        <label for="password">Password :</label>
+        <input type="password" id="password" name="password" maxlength="25" pattern="[A-Za-z]+" placeholder="Enter Password" required>
+
+        <button type="submit" class="submit-btn">Login</button>
+        <button type="reset" class="reset-btn">Reset</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Root Flower — All Rights Reserved.</p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-menu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
