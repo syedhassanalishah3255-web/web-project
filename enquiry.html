@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Enquiry Page"/>
+  <meta name="keywords" content="HTML,CSS"/>
+  <meta name="author" content="Ali Murtaza Shah SYED"/>
+  <title>Enquiry | Root Flower</title>
+
+  <!-- Fonts -->
+
+  <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- External CSS -->
+
+  <link rel="stylesheet" href="enquiry.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="branding">
+      <img class="logo" src="logo.jpg" alt="Root Flower logo" />
+      <span class="brand-name">Root Flower</span>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <ul class="menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li class="has-sub">
+          <a href="products.html"><i class="fa-solid fa-heart"></i> Products <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="product1.html">Hand bouquet</a></li>
+            <li><a href="product2.html">CNY decoration</a></li>
+            <li><a href="product3.html">Grand Opening</a></li>
+            <li><a href="product4.html">Graduation</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="Activities.html"><i class="fa-solid fa-heart"></i> Activities <i class="fa-solid fa-chevron-down"></i></a>
+          <ul class="submenu">
+            <li><a href="workshop.html">Workshop</a></li>
+            <li><a href="promotion.html">Promotion</a></li>
+          </ul>
+        </li>
+        <li><a href="register.html">Workshop Registration</a></li>
+        <li><a href="enquiry.html">Enquiry</a></li>
+        <li><a href="registration.html">Membership</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a class="icon user" href="login.html" aria-label="Login">
+        <i class="fa-solid fa-user"></i>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="form-box">
+      <h2>Make an Enquiry</h2>
+      <p class="tagline">
+        We’re Here To Help You With Your Questions.<br>
+        Fill Out The Form Below And Our Team Member Will Get Back To You Promptly.
+      </p>
+
+      <form action="mailto:youremail@example.com" method="post" enctype="text/plain" onsubmit="alert('This is a dummy enquiry form.'); return false;">
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" name="First Name" maxlength="25" pattern="[A-Za-z]+" required>
+
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" name="Last Name" maxlength="25" pattern="[A-Za-z]+" required>
+
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="Email" required>
+
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="Phone" maxlength="10" pattern="\d{10}" placeholder="e.g. 0123456789" required>
+
+          <label for="dob">Date Of Birth:</label>
+          <input type="date" id="dob" name="Date of Birth" required>
+        </fieldset>
+
+        <fieldset>
+          <legend>Enquiry Details</legend>
+
+          <label for="enquiry">Enquiry Type:</label>
+          <select id="enquiry" name="Enquiry Type" required>
+            <option value="">-- Select --</option>
+            <option value="Products">Products</option>
+            <option value="Membership">Membership</option>
+            <option value="Workshop">Workshop</option>
+          </select>
+
+          <label>Preferred Mode Of Communication:</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="Communication" value="Email"> Email</label>
+            <label><input type="checkbox" name="Communication" value="Phone"> Phone</label>
+            <label><input type="checkbox" name="Communication" value="WhatsApp"> WhatsApp</label>
+          </div>
+
+          <label>Would You Like To Subscribe To Our Newsletter?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="Newsletter" value="Yes" required> Yes</label>
+            <label><input type="radio" name="Newsletter" value="No"> No</label>
+          </div>
+
+          <label for="comments">Comments:</label>
+          <textarea id="comments" name="Comments" rows="5" required></textarea>
+        </fieldset>
+
+        <button type="submit" class="submit-btn">Send Enquiry</button>
+        <button type="reset" class="reset-btn">Reset Form</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Root Flower — All Rights Reserved.</p>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-menu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
