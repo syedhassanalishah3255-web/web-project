@@ -67,7 +67,6 @@
       <h2><i class="fa-solid fa-seedling"></i> Register for Our Workshop</h2>
       <p class="subtitle">✨ Fill Out The Form Below To Secure Your Spot In Our Exciting And Creative Workshops ✨</p>
 
-      <!-- ✅ Fixed: One single form with working mailto action -->
       <form action="mailto:youraddress@gmail.com" method="post" enctype="text/plain">
         
         <label for="fname">First Name:</label>
@@ -94,12 +93,12 @@
             <option value="Wedding Special">Wedding Special</option>
           </select>
 
-          <p style="margin-top:15px; font-weight:bold; color:var(--brand);">Preferred Session:</p>
+          <p class="fieldset-title">Preferred Session:</p>
           <label><input type="radio" name="Preferred Session" value="Morning" required> Morning (9AM - 12PM)</label>
           <label><input type="radio" name="Preferred Session" value="Afternoon"> Afternoon (1PM - 4PM)</label>
           <label><input type="radio" name="Preferred Session" value="Evening"> Evening (5PM - 8PM)</label>
 
-          <p style="margin-top:20px; font-weight:bold; color:var(--brand);">Additional Options:</p>
+          <p class="fieldset-title">Additional Options:</p>
           <div class="checkbox-group">
             <label><input type="checkbox" name="Extras" value="Include Materials"> Include Materials</label>
             <label><input type="checkbox" name="Extras" value="Receive Certificate"> Receive Certificate</label>
